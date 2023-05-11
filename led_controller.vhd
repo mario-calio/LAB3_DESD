@@ -11,6 +11,7 @@ entity led_controller is
         led_g : out std_logic_vector (7 downto 0);
         led_r : out std_logic_vector (7 downto 0)
     );
+end led_controller;
 
 architecture led_controller of led_controller is 
     
@@ -26,17 +27,18 @@ begin
             if mute_enable then 
                 led_r <= led_on;
                 led_g <= led_off;
-                led_b <= led_off
+                led_b <= led_off;
             else 
                 if  filter_enable then
                     led_r <= led_off;
                     led_g <= led_off;
-                    led_b <= led_on
+                    led_b <= led_on;
                 else 
                     led_r <= led_off;
                     led_g <= led_on;
-                    led_b <= led_off
-
+                    led_b <= led_off;
+                end if;
+            end if;
     end process;
     
 end architecture;
