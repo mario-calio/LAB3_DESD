@@ -7,6 +7,7 @@ entity led_controller is
     port (
         mute_enable : in std_logic;
         filter_enable :in std_logic;
+
         led_b : out std_logic_vector (7 downto 0);
         led_g : out std_logic_vector (7 downto 0);
         led_r : out std_logic_vector (7 downto 0)
@@ -20,7 +21,7 @@ architecture led_controller of led_controller is
 
 begin
     
-    process(mute_enable, filter_enable)
+    process(mute_enable,filter_enable)
 
         begin   
             
