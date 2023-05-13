@@ -49,7 +49,7 @@ architecture Behavioral of volume_controller is
 
     -- signal finished_flag      : std_logic := '0';   -- maybe we don't need this flag since we have slider and volume_temp that can check the state : if finished or not
     signal counter            : integer;
-    signal output_temp        : std_logic_vector(23 downto 0) := s_axis_tdata;
+    signal output_temp        : unsigned(23 downto 0);
     
 	
 begin
@@ -72,7 +72,7 @@ begin
 
                 m_axis_tlast_temp <= s_axis_tlast;
                 s_axis_tready_int <= '0'; --we're always ready actually
-                output_temp <= s_axis_tdata;
+                output_temp <= unsigned(s_axis_tdata);
 
 
                 volume_temp <= volume_integer - 512;
@@ -85,66 +85,74 @@ begin
                 end if;
 
                 if LorR = '1' then
-                    while volume_temp > slider loop
-                        if slider = 0 then
-                            slider <= slider + SPAN_HALF;
-                        else 
-                            slider <= slider + SPAN;
-                            counter <= counter + 1; 
-                        end if;
+                    -- while volume_temp > slider loop
+                    --     if slider = 0 then
+                    --         slider <= slider + SPAN_HALF;
+                    --     else 
+                    --         slider <= slider + SPAN;
+                    --         counter <= counter + 1; 
+                    --     end if;
                         
-                    end loop;
+                    -- end loop;
 
-                    if volume_temp <= slider then
+                    -- if volume_temp <= slider then
 
-                        
+                    counter <= (volume_temp + SPAN_HALF)/SPAN;
+                    
+                    output_temp <= to_unsigned((to_integer(output_temp)) * (2**counter), 24);
+                    --output_temp <= output_temp sll counter;
 
-                        while counter /= 0 loop  -- <shift_left>
+                        -- while counter /= 0 loop  -- <shift_left>
                             
-                            if to_signed(volume_temp, 24)(23) = '1' then   -- CHECK CLIPPING
-                                counter <= 0;
-                                output_temp <= ((others => '1') );
+                        --     if to_signed(volume_temp, 24)(23) = '1' then   -- CHECK CLIPPING
+                        --         counter <= 0;
+                        --         output_temp <= ((others => '1') );
 
-                            else
+                        --     else
                                 
-                                output_temp(23 downto 0) <= output_temp(22 downto 0) & '0';
-                                counter <= counter - 1;
+                        --         output_temp(23 downto 0) <= output_temp(22 downto 0) & '0';
+                        --         counter <= counter - 1;
 
-                            end if;
+                        --     end if;
 
-                        end loop;
+                        -- end loop;
 
                             
-                        m_axis_tdata <= output_temp;
+                        m_axis_tdata <= std_logic_vector(output_temp);
                         m_axis_tvalid <= '1';
                         m_axis_tlast <= m_axis_tlast_temp;
 
-                    end if;
+                   -- end if;
                 end if;
 
                 if LorR = '0' then
-                    while volume_temp < slider loop
-                        if slider = 0 then
-                            slider <= slider - SPAN_HALF;
-                        else 
-                            slider <= slider - SPAN;
-                            counter <= counter + 1;
-                        end if;
+                    -- while volume_temp < slider loop
+                    --     if slider = 0 then
+                    --         slider <= slider - SPAN_HALF;
+                    --     else 
+                    --         slider <= slider - SPAN;
+                    --         counter <= counter + 1;
+                    --     end if;
 
-                    end loop;
-                    if slider <=  volume_temp then
+                    -- end loop;
+                    -- if slider <=  volume_temp then
 
-                        while counter /= 0 loop  -- <shift_right>
+                    counter <= (volume_temp - SPAN_HALF)/SPAN;
 
-                            output_temp(23 downto 0) <= '0' & output_temp(23 downto 1);
-                            counter <= counter - 1;
+                    output_temp <= to_unsigned((to_integer(output_temp)) / (2**counter), 24);
+                    --output_temp <= output_temp srl counter;
 
-                        end loop;                
+                        -- while counter /= 0 loop  -- <shift_right>
 
-                        m_axis_tdata <= output_temp;
+                        --     output_temp(23 downto 0) <= '0' & output_temp(23 downto 1);
+                        --     counter <= counter - 1;
+
+                        -- end loop;                
+
+                        m_axis_tdata <= std_logic_vector(output_temp);
                         m_axis_tvalid <= '1';
                         
-                    end if;
+                    --end if;
                 end if;
 
             end if;
