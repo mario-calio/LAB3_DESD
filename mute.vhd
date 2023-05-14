@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity mute is 
+entity mute is
     port (
         --saxis----
         s_axis_tvalid	: in STD_LOGIC;
@@ -15,10 +15,11 @@ entity mute is
 		m_axis_tready	: in STD_LOGIC
         -------------
     );
+end mute;
 
 end mute;
 
-architecture mute of mute is 
+architecture mute of mute is
 
     signal muted_signal  : STD_LOGIC_VECTOR(23 downto 0) := (others => '0');
     signal unmuted_signal : STD_LOGIC_VECTOR(23 downto 0);
@@ -31,13 +32,13 @@ architecture mute of mute is
     begin
 
     -- non penso serva usare alcun process dato che il blocco non usa nè clock né reset e usiamo
-    -- mute_enable per selezionare l'uscita. Altra cosa: penso che m_axis_tvalid (fissato ad 1) vada 
-    -- usato per forza perchè 'axis_dual_i2s' lo riceve come input, mentre s_axis_tready non è 
+    -- mute_enable per selezionare l'uscita. Altra cosa: penso che m_axis_tvalid (fissato ad 1) vada
+    -- usato per forza perchè 'axis_dual_i2s' lo riceve come input, mentre s_axis_tready non è
     -- necessario se non viene usato come output in 'volume_controller'
 
     ------------- MAURONE FAMMI SAPERE CHE NE PENSI    ------------------
 
-        
+
 
     -- slave management : process()
     --     if s_axis_tready = '1' and s_axis_tvalid ='1' then-- CONDIZIONE DI VALIDITA' DEL SEGNALE IN INGRESSO
@@ -53,7 +54,7 @@ architecture mute of mute is
         s_axis_tready <= s_axis_tready_int;
         m_axis_tvalid <= m_axis_tvalid_int;
 
-        
+
         process(s_axis_tvalid, m_axis_tready, mute_enable, s_axis_tdata)
         begin
             if s_axis_tvalid = '1' and s_axis_tready_int = '1' then
@@ -66,7 +67,7 @@ architecture mute of mute is
 
                 if mute_enable = '0' then
                     m_axis_tdata <= unmuted_signal;
-                else 
+                else
                     m_axis_tdata <= muted_signal;
                 end if;
 
@@ -76,11 +77,11 @@ architecture mute of mute is
             end if;
 
             if m_axis_tready = '1' and m_axis_tvalid_int = '1' then
-                m_axis_tvalid <= '0'; 
+                m_axis_tvalid <= '0';
             end if;
 
         end process;
-      
+
 
         -- with mute_enable select m_axis_tdata <= muted_signal when '1',
         --                                         unmuted_signal when '0',
