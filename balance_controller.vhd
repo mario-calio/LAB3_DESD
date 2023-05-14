@@ -3,7 +3,7 @@ library IEEE;
     use IEEE.math_real.all;
     use IEEE.numeric_std.all;
 
-entity volume_controller is
+entity balance_controller is
     
 	generic (
 		N_VALUE		    : integer := 6 
@@ -29,9 +29,9 @@ entity volume_controller is
         --input
         volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
-end volume_controller;
+end balance_controller;
 
-architecture Behavioral of volume_controller is
+architecture Behavioral of balance_controller is
 
     constant SPAN             : integer     := 2 ** N_VALUE;
     constant SPAN_HALF        : integer     := SPAN / 2;

@@ -1,5 +1,5 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+    use IEEE.STD_LOGIC_1164.ALL;
 
 
 
@@ -25,12 +25,12 @@ begin
 
         begin   
             
-            if mute_enable then 
+            if mute_enable = '1' then 
                 led_r <= led_on;
                 led_g <= led_off;
                 led_b <= led_off;
             else 
-                if  filter_enable then
+                if  filter_enable = '1' then
                     led_r <= led_off;
                     led_g <= led_off;
                     led_b <= led_on;
