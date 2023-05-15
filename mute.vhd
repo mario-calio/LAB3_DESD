@@ -66,13 +66,13 @@ architecture Behavioral of mute is
                         m_axis_tdata <= muted_signal;
                     end if;
 
-                    m_axis_tvalid <= '1';
+                    m_axis_tvalid_int <= '1';
                     new_data <= '0';
 
                 end if;
 
                 if m_axis_tready = '1' and m_axis_tvalid_int = '1' then
-                    m_axis_tvalid <= '0';
+                    m_axis_tvalid_int <= '0';
                 end if;
 
             end if;
