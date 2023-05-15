@@ -28,7 +28,7 @@ entity dual_moving_average is
     );
     end dual_moving_average;
     
-architecture dual_moving_average of dual_moving_average is 
+architecture Behavioral of dual_moving_average is 
     
     type   MEM_ARRAY  is  array(31 DOWNTO 0) of std_logic_vector(23 downto 0);
 
