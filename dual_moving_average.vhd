@@ -47,19 +47,12 @@ architecture dual_moving_average of dual_moving_average is
 
     signal average_dx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
     signal average_sx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
-    signal average_to_send : std_logic_vector (23 DOWNTO 0) := (Others => '0');
+    
+    signal m_axis_tdata_int : std_logic_vector (23 DOWNTO 0) := (Others => '0');
 
 begin
 
-    with state select m_axis_tvalid <=
-		'1' when filter_on_full_memory,
-		'1' when filter_on_notFull_memory,
-		'1' when filter_off; 
-
-    with state select m_axis_tdata <=
-        s_axis_tdata when filter_off,
-        s_axis_tdata when filter_on_notFull_memory,
-        average_to_send when filter_on_Full_memory;
+    m_axis_tdata <= m_axis_tdata_int;
 
     process (aclk,aresetn)
 
@@ -70,10 +63,12 @@ begin
             counter_dx <= 0;
             counter_sx <= 0;
             s_axis_tready <= '0';
+            m_axis_tvalid <= '0';
 
         elsif rising_edge(aclk) then
              
             s_axis_tready <= '1';
+            m_axis_tvalid <= '1';
                   
     --If data is valid from the master
             if s_axis_tvalid = '1' then
@@ -86,12 +81,14 @@ begin
                             mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
                             sum_dx <= std_logic_vector(unsigned(sum_dx) + unsigned(mem_dx(31)));
                             average_dx <= std_logic_vector(unsigned(sum_dx)/32);
-                            average_to_send <= average_dx(29 DOWNTO 5);
+                            m_axis_tdata_int <= average_dx(29 DOWNTO 5);
                             state <= filter_on_full_memory;
+                            
                         else
                             mem_dx(counter_dx) <= s_axis_tdata;
                             sum_dx <= std_logic_vector(unsigned(sum_dx) + unsigned(s_axis_tdata));
                             counter_dx  <= counter_dx + 1;
+                            m_axis_tdata_int <= s_axis_tdata;
                         end if;
                             
                     else
@@ -100,16 +97,18 @@ begin
                             mem_sx <= s_axis_tdata & mem_sx(31 downto 1);
                             sum_sx <= std_logic_vector(unsigned(sum_sx) + unsigned(mem_sx(31)));
                             average_sx <= std_logic_vector(unsigned(sum_sx)/32);    
-                            average_to_send <= average_sx(29 DOWNTO 5);        
+                            m_axis_tdata_int <= average_sx(29 DOWNTO 5);        
                         else 
                             mem_dx(counter_sx) <= s_axis_tdata;
                             sum_sx <= std_logic_vector(unsigned(sum_sx) + unsigned(s_axis_tdata));
                             counter_sx  <= counter_sx + 1;
                             state <= filter_on_notFull_memory;
+                            m_axis_tdata_int <= s_axis_tdata;
                         end if;
                     end if;
                 else
                     state <= filter_off;
+                    m_axis_tdata_int <= s_axis_tdata;
                 end if;
             end if;
         end if;    
