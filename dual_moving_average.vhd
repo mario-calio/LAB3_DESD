@@ -47,6 +47,7 @@ architecture Behavioral of dual_moving_average is
     signal m_axis_tdata_int : std_logic_vector (23 DOWNTO 0) := (Others => '0');
     signal m_axis_tvalid_int : std_logic := '0';
     signal m_axis_tlast_temp  : std_logic := '0';
+    signal new_data          : std_logic := '0';
 
     signal is_filter : std_logic := '0';
 
@@ -62,17 +63,17 @@ begin
             
             counter_dx <= 0;
             counter_sx <= 0;
-            s_axis_tready <= '0';
-            m_axis_tvalid <= '0';
+            s_axis_tready <= '1';
+            m_axis_tvalid_int <= '0';
+            new_data <= '0';
 
         elsif rising_edge(aclk) then
              
-            s_axis_tready <= '1';
-            m_axis_tvalid <= '1';
             --slave--------------      
     --If data is valid from the master
             if s_axis_tvalid = '1' then
     --I check if the filter is enabled 
+                new_data <= '1';
                 if filter_enable = '1' then
     --I check what channel is the data for
                     if s_axis_tlast = '1' then
@@ -81,7 +82,7 @@ begin
                             mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
                             sum_dx <= std_logic_vector(unsigned(sum_dx) + unsigned(mem_dx(31)));
                             average_dx <= std_logic_vector(unsigned(sum_dx)/32);
-                            m_axis_tdata_int <= average_dx(29 DOWNTO 5);
+                            m_axis_tdata_int <= average_dx(23 DOWNTO 0);
                             m_axis_tlast <= m_axis_tlast_temp;
                         else
                             mem_dx(counter_dx) <= s_axis_tdata;
@@ -97,7 +98,7 @@ begin
                             mem_sx <= s_axis_tdata & mem_sx(31 downto 1);
                             sum_sx <= std_logic_vector(unsigned(sum_sx) + unsigned(mem_sx(31)));
                             average_sx <= std_logic_vector(unsigned(sum_sx)/32);    
-                            m_axis_tdata_int <= average_sx(29 DOWNTO 5);  
+                            m_axis_tdata_int <= average_sx(23 DOWNTO 0);  
                             m_axis_tlast <= m_axis_tlast_temp;      
                         else 
                             mem_dx(counter_sx) <= s_axis_tdata;
@@ -117,12 +118,13 @@ begin
                 is_filter <= not is_filter;
             end if;
             
-            if m_axis_tvalid_int = '0' then
+            if new_data <= '1' and m_axis_tvalid_int = '0' then
                 
                 m_axis_tdata <= m_axis_tdata_int;
                 m_axis_tlast <= m_axis_tlast_temp;
+                m_axis_tvalid_int <= '1';
+                new_data <= '0';
             end if;
-            m_axis_tvalid_int <= '1';
 
             if m_axis_tready = '1' and m_axis_tvalid_int = '1' then
                 m_axis_tvalid_int <= '0';
