@@ -7,12 +7,14 @@ entity mute is
         s_axis_tvalid	: in STD_LOGIC;
 		s_axis_tdata	: in STD_LOGIC_VECTOR(23 downto 0);
         s_axis_tready	: out STD_LOGIC; ---- ci sono casi in cui s_axis_tready è '0'?---
+        s_axis_tlast    : in STD_LOGIC; 
         -----------
         mute_enable     : in STD_LOGIC;
         --maxis-------
         m_axis_tvalid	: out STD_LOGIC; ---- ci sono casi in cui m_axis_tvalid è '0'?---
 		m_axis_tdata	: out STD_LOGIC_VECTOR(23 downto 0);
 		m_axis_tready	: in STD_LOGIC;
+        m_axis_tlast    : out STD_LOGIC;
         -------------
         aclk            : in STD_LOGIC;
         reset           : in STD_LOGIC
@@ -31,6 +33,7 @@ architecture Behavioral of mute is
 
     signal s_axis_tready_int : std_logic := '1';
     signal m_axis_tvalid_int : std_logic := '0';
+    signal m_axis_tlast_temp  : std_logic := '0';
 
     signal is_mute : std_logic := '0';
 
@@ -39,8 +42,6 @@ architecture Behavioral of mute is
    
         s_axis_tready <= s_axis_tready_int;
         m_axis_tvalid <= m_axis_tvalid_int;
-
-
         process(aclk)
         begin
             if reset = '1' then
@@ -54,6 +55,7 @@ architecture Behavioral of mute is
 
                 if s_axis_tvalid = '1' and s_axis_tready_int = '1' then
                     unmuted_signal <= s_axis_tdata;
+                    m_axis_tlast_temp <= s_axis_tlast;
                     new_data <= '1';
 
                 end if;
@@ -62,8 +64,11 @@ architecture Behavioral of mute is
 
                     if is_mute = '0' then
                         m_axis_tdata <= unmuted_signal;
+                        m_axis_tlast <= m_axis_tlast_temp;
+                        
                     else
                         m_axis_tdata <= muted_signal;
+                        m_axis_tlast <= m_axis_tlast_temp;
                     end if;
 
                     m_axis_tvalid_int <= '1';
