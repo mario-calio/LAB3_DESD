@@ -7,7 +7,9 @@ entity led_controller is
     port (
         mute_enable : in std_logic;
         filter_enable : in std_logic;
+
         aclk  : in std_logic;
+        
         led_b : out std_logic_vector (7 downto 0);
         led_g : out std_logic_vector (7 downto 0);
         led_r : out std_logic_vector (7 downto 0)
