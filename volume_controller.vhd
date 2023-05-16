@@ -27,7 +27,9 @@ entity volume_controller is
         s_axis_tlast    : in STD_LOGIC;
 
         --input
-        volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0)
+        volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0);
+
+        controllo       : out signed(23 downto 0)
 	);
 end volume_controller;
 
@@ -45,7 +47,7 @@ architecture Behavioral of volume_controller is
     signal DorM               : std_logic := '0';                             -- 0 is division, 1 is multiplication
     signal m_axis_tlast_temp  : std_logic := '0';
 
-    signal s_axis_tready_int  : std_logic := '0';
+    signal s_axis_tready_int  : std_logic := '1';
     signal m_axis_tvalid_int   : std_logic := '0';
     signal new_data           : std_logic := '0';
 
@@ -58,30 +60,35 @@ begin
 
     s_axis_tready <= s_axis_tready_int;
     m_axis_tvalid <= m_axis_tvalid_int;
-
-	volume_integer <= to_integer(unsigned(volume));
+    
+    controllo <= output_temp;
+	
+    volume_integer <= to_integer(unsigned(volume));
 
 	process(aclk)
     begin
         if aresetn = '0' then
             slider <= 0;
             counter <= 0;
+            m_axis_tvalid_int <= '0';
             output_temp <= (others => '0');
 
         elsif rising_edge(aclk) then
            
-            s_axis_tready_int <= '1'; -- check if you skip a cycle untill s axis t ready isn't 1
+           -- s_axis_tready_int <= '1'; -- check if you skip a cycle untill s axis t ready isn't 1
 
             if s_axis_tready_int = '1' and s_axis_tvalid = '1' then
 
                 m_axis_tlast_temp <= s_axis_tlast;
-                s_axis_tready_int <= '0'; --we're always ready actually, we might need it to adress computation time
-                output_temp <= signed(s_axis_tdata);
+                --s_axis_tready_int <= '0'; --we're always ready actually, we might need it to adress computation time
+                output_temp <= signed(s_axis_tdata); -- this assignement doesn't happen, don't know why.... bicöss...
 
 
                 volume_temp <= volume_integer - 512;
                 slider  <= 0;
                 counter <= 0;
+                
+                new_data <= '1';
 
                 if volume_temp > 0 then
                     DorM <= '1';
@@ -93,8 +100,6 @@ begin
                     counter <= (volume_temp + SPAN_HALF)/SPAN;
                     
                     output_temp <= to_signed((to_integer(output_temp)) * (2**counter), 24);
-
-                    new_data <= '1';
                             
 
                 end if;

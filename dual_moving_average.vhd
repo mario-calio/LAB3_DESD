@@ -61,12 +61,12 @@ begin
 
     begin   
 
-        if aresetn = '1' then
+        if aresetn = '0' then
             
             counter_dx <= 0;
             counter_sx <= 0;
-            s_axis_tready <= '1';
-            m_axis_tvalid <= '0';
+            s_axis_tready_int <= '1';
+            m_axis_tvalid_int <= '0';
             new_data <= '0';
 
         elsif rising_edge(aclk) then
