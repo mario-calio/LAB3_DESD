@@ -46,7 +46,7 @@ architecture Behavioral of volume_controller is
     signal m_axis_tlast_temp  : std_logic := '0';
 
     signal s_axis_tready_int  : std_logic := '0';
-    signal m_axis_valid_int   : std_logic := '0';
+    signal m_axis_tvalid_int   : std_logic := '0';
     signal new_data           : std_logic := '0';
 
     signal slider             : integer   :=  0;
@@ -57,7 +57,7 @@ architecture Behavioral of volume_controller is
 begin
 
     s_axis_tready <= s_axis_tready_int;
-    m_axis_tvalid <= m_axis_valid_int;
+    m_axis_tvalid <= m_axis_tvalid_int;
 
 	volume_integer <= to_integer(unsigned(volume));
 

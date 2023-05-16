@@ -78,15 +78,15 @@ begin
     --I check what channel is the data for
                     if s_axis_tlast = '1' then
                         if counter_dx = 32 then
-                            sum_dx <= std_logic_vector(unsigned(sum_dx) - unsigned(mem_dx(0)));
+                            sum_dx <= std_logic_vector(signed(sum_dx) - signed(mem_dx(0)));
                             mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
-                            sum_dx <= std_logic_vector(unsigned(sum_dx) + unsigned(mem_dx(31)));
-                            average_dx <= std_logic_vector(unsigned(sum_dx)/32);
+                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31)));
+                            average_dx <= std_logic_vector(signed(sum_dx)/32);
                             m_axis_tdata_int <= average_dx(23 DOWNTO 0);
                             m_axis_tlast <= m_axis_tlast_temp;
                         else
                             mem_dx(counter_dx) <= s_axis_tdata;
-                            sum_dx <= std_logic_vector(unsigned(sum_dx) + unsigned(s_axis_tdata));
+                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
                             counter_dx  <= counter_dx + 1;
                             m_axis_tdata_int <= s_axis_tdata;
                             m_axis_tlast <= m_axis_tlast_temp;
@@ -94,15 +94,15 @@ begin
                             
                     else
                         if counter_sx = 32 then
-                            sum_sx <= std_logic_vector(unsigned(sum_sx) - unsigned(mem_sx(0)));
+                            sum_sx <= std_logic_vector(signed(sum_sx) - signed(mem_sx(0)));
                             mem_sx <= s_axis_tdata & mem_sx(31 downto 1);
-                            sum_sx <= std_logic_vector(unsigned(sum_sx) + unsigned(mem_sx(31)));
-                            average_sx <= std_logic_vector(unsigned(sum_sx)/32);    
+                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(mem_sx(31)));
+                            average_sx <= std_logic_vector(signed(sum_sx)/32);    
                             m_axis_tdata_int <= average_sx(23 DOWNTO 0);  
                             m_axis_tlast <= m_axis_tlast_temp;      
                         else 
                             mem_dx(counter_sx) <= s_axis_tdata;
-                            sum_sx <= std_logic_vector(unsigned(sum_sx) + unsigned(s_axis_tdata));
+                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
                             counter_sx  <= counter_sx + 1;
                             m_axis_tdata_int <= s_axis_tdata;
                             m_axis_tlast <= m_axis_tlast_temp;
@@ -110,10 +110,13 @@ begin
                     end if;
                 else
                     m_axis_tdata_int <= s_axis_tdata;
+                    m_axis_tlast <= m_axis_tlast_temp;
                 end if;
             end if;
             --------------
             --- master-----
+
+            --a cosa serve checkare is filter?
             if filter_enable = '1' then
                 is_filter <= not is_filter;
             end if;
