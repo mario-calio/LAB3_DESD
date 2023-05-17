@@ -4,6 +4,10 @@ use IEEE.math_real.all;
 use IEEE.numeric_std.all;
 
 entity dual_moving_average is 
+
+    generic (
+		FILTER_DEPTH		    : integer := 32
+        );
     
     port (
         
@@ -11,14 +15,14 @@ entity dual_moving_average is
         aresetn : in std_logic;
         filter_enable : in std_logic;
 
-        -- For serial (slv mode) communication with I2S--
+        -- For serial??? (slv mode) communication with I2S--
 
         s_axis_tvalid : in std_logic;
         s_axis_tlast : in std_logic;
         s_axis_tdata : in std_logic_vector(23 DOWNTO 0);
         s_axis_tready : out std_logic;
 
-        -- For serial (master mode) communication with balance controller --
+        -- For serial??? (master mode) communication with balance controller --
 
         m_axis_tvalid : out std_logic;
         m_axis_tlast : out std_logic;
@@ -30,7 +34,7 @@ entity dual_moving_average is
     
 architecture Behavioral of dual_moving_average is 
     
-    type   MEM_ARRAY  is  array(31 DOWNTO 0) of std_logic_vector(23 downto 0);
+    type   MEM_ARRAY  is  array(FILTER_DEPTH-1 DOWNTO 0) of std_logic_vector(23 downto 0);
 
     signal mem_dx :  MEM_ARRAY := (Others => (Others => '0'));
     signal mem_sx :  MEM_ARRAY := (Others => (Others => '0'));
@@ -38,8 +42,8 @@ architecture Behavioral of dual_moving_average is
     signal counter_dx : integer := 0;
     signal counter_sx : integer := 0;
 
-    signal sum_dx :     std_logic_vector(29 DOWNTO 0) := (Others => '0');
-    signal sum_sx :     std_logic_vector(29 DOWNTO 0) := (Others => '0');
+    signal sum_dx :     std_logic_vector(29 DOWNTO 0) := (Others => '0'); --fix this with generics
+    signal sum_sx :     std_logic_vector(29 DOWNTO 0) := (Others => '0'); --why is this std_logc_vect?
 
     signal average_dx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
     signal average_sx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
@@ -72,30 +76,32 @@ begin
         elsif rising_edge(aclk) then
 
             if filter_enable = '1' then
-            is_filter <= not is_filter;
+                is_filter <= not is_filter;
             end if;
 
-            --slave--------------      
-    --If data is valid from the master
-            if s_axis_tvalid = '1' then
-    --I check if the filter is enabled 
-                new_data <= '1';
+                --slave--------------      
+                 --If data is valid from the master
+            if s_axis_tvalid = '1'and s_axis_tready = '1' then
+                --I check if the filter is enabled 
+
                 if is_filter = '1' then
-    --I check what channel is the data for
+                    --I check what channel is the data for
                     if s_axis_tlast = '1' then
                         if counter_dx = 32 then
                             sum_dx <= std_logic_vector(signed(sum_dx) - signed(mem_dx(0)));
                             mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31)));
+                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31))); --maybe I should add the value of t_data?
                             average_dx <= std_logic_vector(signed(sum_dx)/32);
                             m_axis_tdata_int <= average_dx(23 DOWNTO 0);
                             m_axis_tlast_temp <= s_axis_tlast;
+                            new_data <= '1';
                         else
                             mem_dx(counter_dx) <= s_axis_tdata;
                             sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
                             counter_dx  <= counter_dx + 1;
                             m_axis_tdata_int <= s_axis_tdata;
                             m_axis_tlast_temp <= s_axis_tlast;
+                            new_data <= '1';
                         end if;
                             
                     else
@@ -105,13 +111,15 @@ begin
                             sum_sx <= std_logic_vector(signed(sum_sx) + signed(mem_sx(31)));
                             average_sx <= std_logic_vector(signed(sum_sx)/32);    
                             m_axis_tdata_int <= average_sx(23 DOWNTO 0);  
-                            m_axis_tlast_temp <= s_axis_tlast;      
+                            m_axis_tlast_temp <= s_axis_tlast;    
+                            new_data <= '1';  
                         else 
                             mem_dx(counter_sx) <= s_axis_tdata;
                             sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
                             counter_sx  <= counter_sx + 1;
                             m_axis_tdata_int <= s_axis_tdata;
                             m_axis_tlast_temp <= s_axis_tlast;
+                            new_data <= '1';
                         end if;
                     end if;
                 else
