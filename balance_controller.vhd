@@ -85,9 +85,13 @@ begin
                 end if;
 
                 if LorR = '1' then
+
                     while volume_temp > slider loop
+
                         if slider = 0 then
+
                             slider <= slider + SPAN_HALF;
+                        
                         else 
                             slider <= slider + SPAN;
                             counter <= counter + 1; 
@@ -145,6 +149,7 @@ begin
                         m_axis_tvalid <= '1';
                         
                     end if;
+
                 end if;
 
             end if;

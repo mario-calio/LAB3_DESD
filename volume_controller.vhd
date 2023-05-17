@@ -51,7 +51,6 @@ architecture Behavioral of volume_controller is
     signal m_axis_tvalid_int   : std_logic := '0';
     signal new_data           : std_logic := '0';
 
-    signal slider             : integer   :=  0;
     signal counter            : integer;
     signal output_temp        : signed(23 downto 0);
     
@@ -68,7 +67,6 @@ begin
 	process(aclk)
     begin
         if aresetn = '0' then
-            slider <= 0;
             counter <= 0;
             m_axis_tvalid_int <= '0';
             output_temp <= (others => '0');
@@ -85,10 +83,9 @@ begin
 
 
                 volume_temp <= volume_integer - 512;
-                slider  <= 0;
                 counter <= 0;
                 
-                new_data <= '1';
+
 
                 if volume_temp > 0 then
                     DorM <= '1';
@@ -100,6 +97,8 @@ begin
                     counter <= (volume_temp + SPAN_HALF)/SPAN;
                     
                     output_temp <= to_signed((to_integer(output_temp)) * (2**counter), 24);
+
+                    new_data <= '1';
                             
 
                 end if;
@@ -108,7 +107,9 @@ begin
 
                     counter <= (volume_temp - SPAN_HALF)/SPAN;
 
-                    output_temp <= to_signed((to_integer(output_temp)) / (2**counter), 24);         
+                    output_temp <= to_signed((to_integer(output_temp)) / (2**counter), 24);     
+                    
+                    new_data <= '1';
                         
                 end if;
 
