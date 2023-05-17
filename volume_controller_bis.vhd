@@ -3,7 +3,7 @@ library IEEE;
     use IEEE.math_real.all;
     use IEEE.numeric_std.all;
 
-entity volume_controller is
+entity volume_controller_bis is
     
 	generic (
 		N_VALUE		    : integer := 6 
@@ -31,9 +31,9 @@ entity volume_controller is
 
         controllo       : out std_logic_vector(23 downto 0)
 	);
-end volume_controller;
+end volume_controller_bis;
 
-architecture Behavioral of volume_controller is
+architecture Behavioral of volume_controller_bis is
 
     constant SPAN             : integer     := 2 ** N_VALUE;
     constant SPAN_HALF        : integer     := SPAN / 2;
@@ -99,7 +99,7 @@ begin
 
                     counter <= (volume_temp + SPAN_HALF)/SPAN;
                     
-                    output_temp <= to_signed((to_integer(signed(output_temp))) * (2**counter), 24);
+                    output_temp <= std_logic_vector(to_signed((to_integer(signed(output_temp))) * (2**counter), 24));
                             
 
                 end if;
@@ -108,7 +108,7 @@ begin
 
                     counter <= (volume_temp - SPAN_HALF)/SPAN;
 
-                    output_temp <= to_signed((to_integer(signed(output_temp))) / (2**counter), 24);         
+                    output_temp <= std_logic_vector(to_signed((to_integer(signed(output_temp))) / (2**counter), 24));         
                         
                 end if;
 
