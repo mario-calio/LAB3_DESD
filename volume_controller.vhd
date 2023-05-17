@@ -27,9 +27,7 @@ entity volume_controller is
         s_axis_tlast    : in STD_LOGIC;
 
         --input
-        volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0);
-
-        controllo       : out signed(23 downto 0)
+        volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 end volume_controller;  
 
@@ -59,8 +57,6 @@ begin
 
     s_axis_tready <= s_axis_tready_int;
     m_axis_tvalid <= m_axis_tvalid_int;
-    
-    controllo <= output_temp;
 	
     volume_integer <= to_integer(unsigned(volume));
 
@@ -125,10 +121,12 @@ begin
                     if DorM = '1' then
 
                         if output_temp(output_temp'HIGH) = '1' and output_temp(output_temp'HIGH-1) = '0' then --overflow condition for negative number 
-                            output_temp <= '1' & (others => '0'); 
+                            output_temp(output_temp'HIGH) <= '1'; 
+                            output_temp(output_temp'HIGH-1 downto 0) <= (others => '0');
                             counter <= 0;
                         elsif output_temp(output_temp'HIGH) = '0' and output_temp(output_temp'HIGH-1) = '1' then --overflow condition for positive number
-                            output_temp <= '0' & (others => '1');
+                            output_temp(output_temp'HIGH) <= '0'; 
+                            output_temp(output_temp'HIGH-1 downto 0) <= (others => '1');
                             counter <= 0;
                         else 
                             output_temp <= output_temp(output_temp'HIGH-1 downto 0) & '0';

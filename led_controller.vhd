@@ -7,8 +7,6 @@ entity led_controller is
     port (
         mute_enable : in std_logic;
         filter_enable : in std_logic;
-
-        aclk  : in std_logic;
         
         led_b : out std_logic_vector (7 downto 0);
         led_g : out std_logic_vector (7 downto 0);
@@ -28,36 +26,33 @@ begin
 
 
     
-    process (aclk)
+    process (is_mute, is_filter, mute_enable, filter_enable)
         
         begin
 
-            if rising_edge(aclk) then
+            if mute_enable = '1' then
+                is_mute <= not is_mute;
+            end if;
 
-                if mute_enable = '1' then
-                    is_mute <= not is_mute;
-                end if;
-
-                if filter_enable = '1' then
-                    is_filter <= not is_filter;
-                end if;
-                
-                
-                if is_mute = '1' then
-                    led_r <= led_on;
+            if filter_enable = '1' then
+                is_filter <= not is_filter;
+            end if;
+            
+            
+            if is_mute = '1' then
+                led_r <= led_on;
+                led_g <= led_off;
+                led_b <= led_off;  
+            
+            else 
+                if is_filter = '1' then
+                    led_r <= led_off;
                     led_g <= led_off;
-                    led_b <= led_off;  
-                
+                    led_b <= led_on;
                 else 
-                    if is_filter = '1' then
-                        led_r <= led_off;
-                        led_g <= led_off;
-                        led_b <= led_on;
-                    else 
-                        led_r <= led_off;
-                        led_g <= led_on;
-                        led_b <= led_off;
-                    end if;
+                    led_r <= led_off;
+                    led_g <= led_on;
+                    led_b <= led_off;
                 end if;
             end if;
         end process;
