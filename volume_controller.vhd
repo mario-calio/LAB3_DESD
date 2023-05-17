@@ -31,7 +31,7 @@ entity volume_controller is
 
         controllo       : out signed(23 downto 0)
 	);
-end volume_controller;
+end volume_controller;  
 
 architecture Behavioral of volume_controller is
 
@@ -52,8 +52,8 @@ architecture Behavioral of volume_controller is
     signal new_data           : std_logic := '0';
 
     signal counter            : integer;
-    signal output_temp        : signed(23 downto 0);
-    
+    signal output_temp        : signed(23 downto 0) := (Others => '1');
+    signal is_computing       : std_logic := '0';
 	
 begin
 
@@ -69,7 +69,7 @@ begin
         if aresetn = '0' then
             counter <= 0;
             m_axis_tvalid_int <= '0';
-            output_temp <= (others => '0');
+            --output_temp <= (others => '0');
 
         elsif rising_edge(aclk) then
            
@@ -83,10 +83,8 @@ begin
 
 
                 volume_temp <= volume_integer - 512;
-                counter <= 0;
+
                 
-
-
                 if volume_temp > 0 then
                     DorM <= '1';
                 else DorM <= '0';
@@ -95,22 +93,63 @@ begin
                 if DorM = '1' then
 
                     counter <= (volume_temp + SPAN_HALF)/SPAN;
+
+                    is_computing <= '1';
+
+
+                    --output_temp(output_temp'high-1 downto counter) <= output_temp(output_temp'high-1-counter downto 0);
+
+                    --output_temp(0 to counter - 1) <= (Others => '0');
                     
-                    output_temp <= to_signed((to_integer(output_temp)) * (2**counter), 24);
-
-                    new_data <= '1';
-                            
-
                 end if;
 
                 if DorM = '0' then
 
                     counter <= (volume_temp - SPAN_HALF)/SPAN;
 
-                    output_temp <= to_signed((to_integer(output_temp)) / (2**counter), 24);     
+                    --output_temp(output_temp'high downto output_temp'high-counter + 1) <= (Others => output_temp(output_temp'high));
                     
-                    new_data <= '1';
+                    --output_temp(output_temp'high - counter downto 0) <= output_temp(output_temp'high downto counter);
+
+                    --output_temp <= shift_right(output_temp, counter);
+                    
+                    is_computing <= '1';
                         
+                end if;
+
+            end if;
+
+            if is_computing = '1' then
+                if counter /= 0 then
+
+                    if DorM = '1' then
+
+                        if output_temp(output_temp'HIGH) = '1' and output_temp(output_temp'HIGH-1) = '0' then --overflow condition for negative number 
+                            output_temp <= '1' & (others => '0'); 
+                            counter <= 0;
+                        elsif output_temp(output_temp'HIGH) = '0' and output_temp(output_temp'HIGH-1) = '1' then --overflow condition for positive number
+                            output_temp <= '0' & (others => '1');
+                            counter <= 0;
+                        else 
+                            output_temp <= output_temp(output_temp'HIGH-1 downto 0) & '0';
+                        end if;
+                        
+                    end if;
+
+                    if DorM = '0' then
+
+                        output_temp <= output_temp(output_temp'HIGH) & output_temp(output_temp'HIGH downto 1);
+
+                    end if;
+
+                    counter <= counter - 1;
+                end if;
+                
+                if counter = 0 then
+                    
+                    is_computing <= '0';
+                    new_data <= '1';
+
                 end if;
 
             end if;
