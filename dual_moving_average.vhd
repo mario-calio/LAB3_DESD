@@ -56,6 +56,9 @@ architecture Behavioral of dual_moving_average is
 
     signal is_filter : std_logic := '0';
 
+    constant counter_const : integer := ceil((log2(real(FILTER_DEPTH))));
+    signal counter : integer;
+
 begin
     
     s_axis_tready <= s_axis_tready_int;
@@ -72,6 +75,8 @@ begin
             s_axis_tready_int <= '1';
             m_axis_tvalid_int <= '0';
             new_data <= '0';
+            is_computing <= '0';
+            counter <= '0';
 
         elsif rising_edge(aclk) then
 
@@ -81,7 +86,7 @@ begin
 
                 --slave--------------      
                  --If data is valid from the master
-            if s_axis_tvalid = '1'and s_axis_tready = '1' then
+            if s_axis_tvalid = '1'and s_axis_tready_int = '1' then
                 --I check if the filter is enabled 
 
                 if is_filter = '1' then
@@ -90,11 +95,10 @@ begin
                         if counter_dx = 32 then
                             sum_dx <= std_logic_vector(signed(sum_dx) - signed(mem_dx(0)));
                             mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31))); --maybe I should add the value of t_data?
-                            average_dx <= std_logic_vector(signed(sum_dx)/32);
-                            m_axis_tdata_int <= average_dx(23 DOWNTO 0);
+                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31)));
                             m_axis_tlast_temp <= s_axis_tlast;
-                            new_data <= '1';
+                            counter <= counter_const;
+                            is_computing = '1';
                         else
                             mem_dx(counter_dx) <= s_axis_tdata;
                             sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
@@ -109,10 +113,9 @@ begin
                             sum_sx <= std_logic_vector(signed(sum_sx) - signed(mem_sx(0)));
                             mem_sx <= s_axis_tdata & mem_sx(31 downto 1);
                             sum_sx <= std_logic_vector(signed(sum_sx) + signed(mem_sx(31)));
-                            average_sx <= std_logic_vector(signed(sum_sx)/32);    
-                            m_axis_tdata_int <= average_sx(23 DOWNTO 0);  
                             m_axis_tlast_temp <= s_axis_tlast;    
-                            new_data <= '1';  
+                            counter <= counter_const; 
+                            is_computing = '1';     
                         else 
                             mem_dx(counter_sx) <= s_axis_tdata;
                             sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
@@ -127,16 +130,34 @@ begin
                     m_axis_tlast_temp <= s_axis_tlast;
                 end if;
             end if;
+
+            if is_computing = '1' then
+                s_axis_tready_int <= '0';
+
+                if counter /= 0 then
+
+                    if m_axis_tlast_temp = '1' then
+
+                        sum_dx <= sum_dx(output_temp'HIGH) & sum_dx(output_temp'HIGH downto 1);
+                        m_axis_tdata_int <= average_dx(23 DOWNTO 0);
+
+                    elsif m_axis_tlast_temp = '0' then
+
+                        sum_sx <= sum_sx(output_temp'HIGH) & sum_sx(output_temp'HIGH downto 1);
+                        m_axis_tdata_int <= average_sx(23 DOWNTO 0); 
+
+                    end if;
+
+                elsif counter = 0 then
+                    is_computing <= '0';
+                    new_data <= '1';
+                end if;  
+            else 
+                s_axis_tready_int <= '1';
+            end if;
+
             --------------
             --- master-----
-
-            --a cosa serve checkare is filter? Risposta: va messo, come per 'mute', la variabile 'is_filter' 
-            --per fare la verifica del filtraggio e quindi abbiamo bisogno dell'if qui sotto per far cambiare is_filter quando viene
-            --premuto il tasto del joystick
-
-            -- if filter_enable = '1' then
-            --     is_filter <= not is_filter;
-            -- end if;
             
             if new_data <= '1' and m_axis_tvalid_int = '0' then
                 
