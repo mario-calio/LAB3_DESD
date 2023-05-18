@@ -26,7 +26,7 @@ begin
 
 
     
-    process (is_mute, is_filter, mute_enable, filter_enable)
+    process (is_mute, is_filter, mute_enable, filter_enable, led_on, led_off)
         
         begin
 

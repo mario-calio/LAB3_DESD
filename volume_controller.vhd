@@ -3,6 +3,7 @@ library IEEE;
     use IEEE.math_real.all;
     use IEEE.numeric_std.all;
 
+    --test comment
 entity volume_controller is
     
 	generic (
@@ -28,7 +29,8 @@ entity volume_controller is
 
         --input
         volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0);
-        controllo       : out signed(23 downto 0)
+        controllo       : out signed(23 downto 0); 
+        controllo_2     : out signed(23 downto 0) --for counter
 
 	);
 end volume_controller;  
@@ -51,20 +53,22 @@ architecture Behavioral of volume_controller is
     signal m_axis_tvalid_int   : std_logic := '0';
     signal new_data           : std_logic := '0';
 
-    signal counter            : integer;
+    signal counter            : integer := 0;
     signal output_temp        : signed(23 downto 0) := (Others => '1');
     signal is_computing       : std_logic := '0';
 	
 begin
 
+
     controllo <= output_temp;
+    controllo_2 <= to_signed(counter, 24);
 
     s_axis_tready <= s_axis_tready_int;
     m_axis_tvalid <= m_axis_tvalid_int;
 	
     volume_integer <= to_integer(unsigned(volume));
 
-	process(aclk)
+	process(aclk, aresetn)
     begin
         if aresetn = '0' then
             counter <= 0;
@@ -105,7 +109,7 @@ begin
 
                 if DorM = '0' then
 
-                    counter <= (volume_temp - SPAN_HALF)/SPAN;
+                    counter <= -(volume_temp - SPAN_HALF)/SPAN;
 
                     --output_temp(output_temp'high downto output_temp'high-counter + 1) <= (Others => output_temp(output_temp'high));
                     
@@ -120,6 +124,9 @@ begin
             end if;
 
             if is_computing = '1' then
+
+                s_axis_tready_int <= '0';
+
                 if counter /= 0 then
 
                     if DorM = '1' then
@@ -153,7 +160,7 @@ begin
                     new_data <= '1';
 
                 end if;
-
+            else s_axis_tready_int <= '1';
             end if;
             
             --master--
