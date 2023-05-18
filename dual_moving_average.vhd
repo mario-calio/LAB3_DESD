@@ -56,8 +56,9 @@ architecture Behavioral of dual_moving_average is
 
     signal is_filter : std_logic := '0';
 
-    constant counter_const : integer := ceil((log2(real(FILTER_DEPTH))));
+    constant counter_const : integer := integer(log2(real(FILTER_DEPTH)))+1;
     signal counter : integer;
+    signal is_computing : std_logic := '0';
 
 begin
     
@@ -76,7 +77,7 @@ begin
             m_axis_tvalid_int <= '0';
             new_data <= '0';
             is_computing <= '0';
-            counter <= '0';
+            counter <= 0;
 
         elsif rising_edge(aclk) then
 
@@ -98,7 +99,7 @@ begin
                             sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31)));
                             m_axis_tlast_temp <= s_axis_tlast;
                             counter <= counter_const;
-                            is_computing = '1';
+                            is_computing <= '1';
                         else
                             mem_dx(counter_dx) <= s_axis_tdata;
                             sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
@@ -115,7 +116,7 @@ begin
                             sum_sx <= std_logic_vector(signed(sum_sx) + signed(mem_sx(31)));
                             m_axis_tlast_temp <= s_axis_tlast;    
                             counter <= counter_const; 
-                            is_computing = '1';     
+                            is_computing <= '1';     
                         else 
                             mem_dx(counter_sx) <= s_axis_tdata;
                             sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
@@ -138,13 +139,13 @@ begin
 
                     if m_axis_tlast_temp = '1' then
 
-                        sum_dx <= sum_dx(output_temp'HIGH) & sum_dx(output_temp'HIGH downto 1);
-                        m_axis_tdata_int <= average_dx(23 DOWNTO 0);
+                        sum_dx <= sum_dx(sum_dx'HIGH) & sum_dx(sum_dx'HIGH downto 1);
+                        m_axis_tdata_int <= sum_dx(23 DOWNTO 0);
 
                     elsif m_axis_tlast_temp = '0' then
 
-                        sum_sx <= sum_sx(output_temp'HIGH) & sum_sx(output_temp'HIGH downto 1);
-                        m_axis_tdata_int <= average_sx(23 DOWNTO 0); 
+                        sum_sx <= sum_sx(sum_sx'HIGH) & sum_sx(sum_sx'HIGH downto 1);
+                        m_axis_tdata_int <= sum_sx(23 DOWNTO 0);
 
                     end if;
 
