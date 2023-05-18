@@ -27,7 +27,9 @@ entity volume_controller is
         s_axis_tlast    : in STD_LOGIC;
 
         --input
-        volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0)
+        volume          : in  STD_LOGIC_VECTOR(9 DOWNTO 0);
+        controllo       : out signed(23 downto 0)
+
 	);
 end volume_controller;  
 
@@ -54,6 +56,8 @@ architecture Behavioral of volume_controller is
     signal is_computing       : std_logic := '0';
 	
 begin
+
+    controllo <= output_temp;
 
     s_axis_tready <= s_axis_tready_int;
     m_axis_tvalid <= m_axis_tvalid_int;
