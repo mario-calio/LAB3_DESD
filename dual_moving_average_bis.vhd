@@ -48,10 +48,11 @@ architecture Behavioral of dual_moving_average is
     signal average_dx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
     signal average_sx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
     
+    
     signal s_axis_tready_int : std_logic := '1';
     signal m_axis_tdata_int : std_logic_vector (23 DOWNTO 0) := (Others => '0');
     signal m_axis_tvalid_int : std_logic := '0';
-    signal m_axis_tlast_temp  : std_logic := '0';
+    signal m_axis_tlast_int  : std_logic := '0';
     signal new_data          : std_logic := '0';
 
     signal is_filter : std_logic := '0';
@@ -82,85 +83,105 @@ begin
         elsif rising_edge(aclk) then
 
             if filter_enable = '1' then
-                is_filter <= not is_filter;
+                is_filter <= '1'';
+            else
+                is_filter <= '0';
+                counter_sx <= 0;
+                counter_dx <= 0;
             end if;
 
                 --slave--------------      
-                 --If data is valid from the master
+                --If data is valid from the master
             if s_axis_tvalid = '1' and s_axis_tready_int = '1' then
+                is_computing <= '1';
                 --I check if the filter is enabled 
-
                 if is_filter = '1' then
                     --I check what channel is the data for
                     if s_axis_tlast = '1' then
                         if counter_dx = 32 then
-                            sum_dx <= std_logic_vector(signed(sum_dx) - signed(mem_dx(0)));
-                            mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31))); --this is wrong, you should add the value from tdata
-                            m_axis_tlast_temp <= s_axis_tlast;
-                            counter <= counter_const;
-                            is_computing <= '1';
-                        else
-                            mem_dx(counter_dx) <= s_axis_tdata;
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
-                            counter_dx  <= counter_dx + 1;
-                            m_axis_tdata_int <= s_axis_tdata;
-                            m_axis_tlast_temp <= s_axis_tlast;
+                            --I reached 32 counts so I have to remove the first number of the vector that doesn't belong anymore to the average depth
+                            average_dx <= std_logic_vector(signed(average_dx) - signed(mem_dx(0)));
+                            --I substitute the new entering data inside the memory to keep track of it
+                            mem_dx <= (s_axis_tdata[17 downto 0]&(Others => '0')) & mem_dx(31 downto 1);
+                            --I add the new averaged data in order to get the average to be put on the master
+                            average_dx <= std_logic_vector(signed(average_dx) + signed(mem_dx(31)));
+                            --Assignment of internal tlast and tdata
+                            m_axis_tlast_int <= s_axis_tlast;
+                            m_axis_tdata_int <= average_dx[29 DOWNTO 5];
+                            --The data to be transfered is new
                             new_data <= '1';
+                            --The computation of the data to be transfered has finished and I'm ready to acquire new ones
+                            is_computing <= '0';
+                        else
+                            --I shift the entering data of N positions (in MSB direction) and I add zeros in order to get the division of 2^N of each sample
+                            mem_dx(counter_dx) <= s_axis_tdata[s_axis_tdata[17 downto 0] & (Others => '0')];
+                            --I start to compute the average acquisition after acquisition
+                            average_dx <= std_logic_vector(signed(average_dx) + signed(mem_sx(counter_dx)));
+                            counter_dx  <= counter_dx + 1;
+                            --Until I have not finished to fill my memory I send the arriving datas without any modification
+                            m_axis_tdata_int <= s_axis_tdata;
+                            m_axis_tlast_int <= s_axis_tlast;
+                            new_data <= '1';
+                            is_computing <= '0';
                         end if;
                             
                     else
                         if counter_sx = 32 then
-                            sum_sx <= std_logic_vector(signed(sum_sx) - signed(mem_sx(0)));
-                            mem_sx <= s_axis_tdata & mem_sx(31 downto 1);
-                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(mem_sx(31)));
-                            m_axis_tlast_temp <= s_axis_tlast;    
-                            counter <= counter_const; 
-                            is_computing <= '1';     
+                            average_sx <= std_logic_vector(signed(average_sx) - signed(mem_sx(0)));
+                            mem_sx <= s_axis_tdata[17 downto 0] & mem_sx(31 downto 1);
+                            average_sx <= std_logic_vector(signed(average_sx) + signed(mem_sx(31)));
+                            m_axis_tlast_temp <= s_axis_tlast;
+                            m_axis_tdata_int <= average_sx[29 DOWNTO 5];  
+                            new_data <= '1'; 
+                            --counter <= counter_const;
+                            is_computing <= '0';     
                         else 
-                            mem_sx(counter_sx) <= s_axis_tdata;
-                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
+                            mem_sx(counter_dx) <= s_axis_tdata[s_axis_tdata[17 downto 0] & (Others => '0')];
+                            average_sx <= std_logic_vector(signed(average_sx) + signed(mem_sx(counter_sx)));
                             counter_sx  <= counter_sx + 1;
                             m_axis_tdata_int <= s_axis_tdata;
-                            m_axis_tlast_temp <= s_axis_tlast;
+                            m_axis_tlast_int <= s_axis_tlast;
                             new_data <= '1';
+                            is_computing <= '0';
                         end if;
                     end if;
                 else
                     m_axis_tdata_int <= s_axis_tdata;
-                    m_axis_tlast_temp <= s_axis_tlast;
+                    m_axis_tlast_int <= s_axis_tlast;
                     new_data <= '1';
                 end if;
             end if;
 
             if is_computing = '1' then
                 s_axis_tready_int <= '0';
-
-                if counter /= 0 then
-
-                    if m_axis_tlast_temp = '1' then
-
-                        sum_dx <= sum_dx(sum_dx'HIGH) & sum_dx(sum_dx'HIGH downto 1);
-                        m_axis_tdata_int <= sum_dx(23 DOWNTO 0);
-
-                    elsif m_axis_tlast_temp = '0' then
-
-                        sum_sx <= sum_sx(sum_sx'HIGH) & sum_sx(sum_sx'HIGH downto 1);
-                        m_axis_tdata_int <= sum_sx(23 DOWNTO 0);
-
-                    end if;
-
-                elsif counter = 0 then
-                    is_computing <= '0';
-                    new_data <= '1';
-                end if;  
             else 
                 s_axis_tready_int <= '1';
             end if;
 
-            --------------
+                --if counter /= 0 then
+
+                    --if m_axis_tlast_temp = '1' then
+
+                      --  sum_dx <= sum_dx(sum_dx'HIGH) & sum_dx(sum_dx'HIGH downto 1);
+                        --m_axis_tdata_int <= sum_dx(23 DOWNTO 0);
+
+                    --elsif m_axis_tlast_temp = '0' then
+
+                      --  sum_sx <= sum_sx(sum_sx'HIGH) & sum_sx(sum_sx'HIGH downto 1);
+                      --  m_axis_tdata_int <= sum_sx(23 DOWNTO 0);
+
+                    --end if;
+
+                --elsif counter = 0 then
+                -- is_computing <= '0';
+                -- new_data <= '1';
+                -- end if;  
+            --else 
+            --    s_axis_tready_int <= '1';
+            -- end if;
+
             --- master-----
-            
+            --Check se il dato da inviare sul m_axis_tdata è nuovo--
             if new_data <= '1' and m_axis_tvalid_int = '0' then
                 
                 m_axis_tdata <= m_axis_tdata_int;
@@ -169,9 +190,11 @@ begin
                 new_data <= '0';
             end if;
 
+            -- check for the handshake with next block -- 
             if m_axis_tready = '1' and m_axis_tvalid_int = '1' then
                 m_axis_tvalid_int <= '0';
             end if;
+
         end if;    
     end process;
 end architecture;
