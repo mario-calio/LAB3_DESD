@@ -57,7 +57,7 @@ architecture Behavioral of dual_moving_average is
     signal is_filter : std_logic := '0';
 
     constant counter_const : integer := integer(log2(real(FILTER_DEPTH)))+1;
-    signal counter : integer;
+    signal counter : integer := 0;
     signal is_computing : std_logic := '0';
 
 begin
@@ -96,7 +96,7 @@ begin
                         if counter_dx = 32 then
                             sum_dx <= std_logic_vector(signed(sum_dx) - signed(mem_dx(0)));
                             mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31)));
+                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31))); --this is wrong, you should add the value from tdata
                             m_axis_tlast_temp <= s_axis_tlast;
                             counter <= counter_const;
                             is_computing <= '1';
@@ -129,6 +129,7 @@ begin
                 else
                     m_axis_tdata_int <= s_axis_tdata;
                     m_axis_tlast_temp <= s_axis_tlast;
+                    new_data <= '1';
                 end if;
             end if;
 
