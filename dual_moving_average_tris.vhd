@@ -57,7 +57,8 @@ architecture Behavioral of dual_moving_average is
     signal sum_dx :     signed(30 DOWNTO 0) := (Others => '0'); 
     signal sum_sx :     signed(30 DOWNTO 0) := (Others => '0');
 
-    signal output_data : std_logic_vector(30 downto 0) := (others => '0');
+    signal output_temp : std_logic_vector(30 downto 0) := (others => '0');
+    signal output_data : std_logic_vector(23 downto 0) := (others => '0');
 
     signal new_data : std_logic := '0';
 
@@ -74,8 +75,8 @@ architecture Behavioral of dual_moving_average is
 
 begin
 
-    debug_1 <= sum_dx;
-    debug_2 <= sum_sx;
+    --debug_1 <= sum_dx;
+    --debug_2 <= sum_sx;
     -- debug_3 <= average_dx;
     -- debug_4 <= average_sx;
     debug_5 <= is_filter;
@@ -109,17 +110,29 @@ begin
                     if s_axis_tlast = '1' then
 
                         mem_dx <= signed(s_axis_tdata) & mem_dx(FILTER_DEPTH - 1 downto 1);
-                        sum_dx <= sum_dx + mem_dx(0);
-                        sum_dx <= mem_dx(1);
-                        mem_dx(1)+mem_dx(2)+mem_dx(3)+mem_dx(4)+mem_dx(5)+mem_dx(6)+mem_dx(7)+mem_dx(8)+mem_dx(9)+mem_dx(10)+mem_dx(11)+mem_dx(12)+mem_dx(13)+mem_dx(14)+mem_dx(15)+mem_dx(16)+mem_dx(17)+mem_dx(18)+mem_dx(19)+mem_dx(20)+mem_dx(21)+mem_dx(22)+mem_dx(23)+mem_dx(24)+mem_dx(25)+mem_dx(26)+mem_dx(27)+mem_dx(28)+mem_dx(29)+mem_dx(30)+mem_dx(31));
-                        output_data <= sum_dx;
+                        --sum_dx <= sum_dx + mem_dx(0);
+                       -- sum_dx <= mem_dx(1);
+                        --mem_dx(1)+mem_dx(2)+mem_dx(3)+mem_dx(4)+mem_dx(5)+mem_dx(6)+mem_dx(7)+mem_dx(8)+mem_dx(9)+mem_dx(10)+mem_dx(11)+mem_dx(12)+mem_dx(13)+mem_dx(14)+mem_dx(15)+mem_dx(16)+mem_dx(17)+mem_dx(18)+mem_dx(19)+mem_dx(20)+mem_dx(21)+mem_dx(22)+mem_dx(23)+mem_dx(24)+mem_dx(25)+mem_dx(26)+mem_dx(27)+mem_dx(28)+mem_dx(29)+mem_dx(30)+mem_dx(31));
+                        if s_axis_tdata (s_axis_tdata'HIGH) = '0' then
+                            output_temp <= (others => '0') ;
+                            output_temp (23 downto 0) <= s_axis_tdata;
+                        else 
+                            output_temp <= (others => '1') ;
+                            output_temp (23 downto 0) <= s_axis_tdata;
+                        end if;
                         counter <= 5;
                         is_computing <= '1';
 
                     elsif s_axis_tlast = '0' then
                         mem_sx <= signed(s_axis_tdata) & mem_sx(FILTER_DEPTH - 1 downto 1);
                         --sum_sx <= std_logic_vector(mem_sx(0)+mem_sx(1)+mem_sx(2)+mem_sx(3)+mem_sx(4)+mem_sx(5)+mem_sx(6)+mem_sx(7)+mem_sx(8)+mem_sx(9)+mem_sx(10)+mem_sx(11)+mem_sx(12)+mem_sx(13)+mem_sx(14)+mem_sx(15)+mem_sx(16)+mem_sx(17)+mem_sx(18)+mem_sx(19)+mem_sx(20)+mem_sx(21)+mem_sx(22)+mem_sx(23)+mem_sx(24)+mem_sx(25)+mem_sx(26)+mem_sx(27)+mem_sx(28)+mem_sx(29)+mem_sx(30)+mem_sx(31));
-                        output_data <= sum_sx;
+                        if s_axis_tdata (s_axis_tdata'HIGH) = '0' then
+                            output_temp <= (others => '0') ;
+                            output_temp (23 downto 0) <= s_axis_tdata;
+                        else 
+                            output_temp <= (others => '1') ;
+                            output_temp (23 downto 0) <= s_axis_tdata;
+                        end if;
                         counter <= 5;
                         is_computing <= '1';
                     end if;
@@ -136,7 +149,7 @@ begin
 
             if new_data = '1' and m_axis_tvalid_int = '0' then
 
-                m_axis_tdata <= output_data(23 downto 0);
+                m_axis_tdata <= output_data;
                 m_axis_tlast <= m_axis_tlast_temp;
 
                 m_axis_tvalid_int <= '1';
@@ -155,13 +168,14 @@ begin
 
                 if counter /= 0 then
 
-                    output_data <= output_data(output_data'HIGH) & output_data(output_data'HIGH downto 1);
+                    output_temp <= output_temp(output_temp'HIGH) & output_temp(output_temp'HIGH downto 1);
 
                     counter <= counter - 1;
 
                 elsif counter = 0 then
                     new_data <= '1';
                     is_computing <= '0';
+                    output_data <= output_temp (23 downto 0);
                 end if;
 
             else
