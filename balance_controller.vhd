@@ -3,7 +3,6 @@ library IEEE;
     use IEEE.math_real.all;
     use IEEE.numeric_std.all;
 
-    --test comment
 entity balance_controller is
     
 	generic (
@@ -26,43 +25,33 @@ entity balance_controller is
         s_axis_tready	: out STD_LOGIC;
         s_axis_tlast    : in STD_LOGIC;
 
-        
-        balance          : in  STD_LOGIC_VECTOR(9 DOWNTO 0);
-        balance_control  : out signed(23 downto 0); 
-        --for counter
-        balance_control_2 : out signed(23 downto 0) 
-
+        balance         : in  STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 end balance_controller;  
 
 architecture Behavioral of balance_controller is
 
     -- CONSTANTS DECLARATION --
-    constant SPAN             : integer     := 2 ** N_VALUE;
-    constant SPAN_HALF        : integer     := SPAN / 2;
-
-    constant NUMBER_OF_GROUPS : integer     := 2 ** 10 / SPAN;   
+    constant SPAN              : integer   := 2 ** N_VALUE; -- The span is the width of an interval used later to calculate how much a channel should be muted
+    constant SPAN_HALF         : integer   := SPAN / 2; -- The first interval is wide half in the positive and negative directions in the axis centered in 0  
 
     -- SIGNALS DECLARATION --
-    signal balance_integer     : integer   := to_integer(unsigned(balance));
+    signal balance_integer     : integer   := to_integer(unsigned(balance)); -- We cast this value to an integer to then subtract it by 512 and put it into balance_temp to center the axis in 0
     signal balance_temp        : integer   := to_integer(unsigned(balance));
-    signal LorR               : std_logic := '0';                             -- 0 is sx, 1 is dx
-    signal m_axis_tlast_temp  : std_logic := '0';
+    signal LorR                : std_logic := '0';                           -- LorR = shift left or shift right. 0 is left, 1 is right
+    signal m_axis_tlast_temp   : std_logic := '0';
 
-    signal s_axis_tready_int  : std_logic := '1';
+    signal s_axis_tready_int   : std_logic := '1';
     signal m_axis_tvalid_int   : std_logic := '0';
-    signal new_data           : std_logic := '0';
+    signal new_data            : std_logic := '0';
 
-    signal counter            : integer := 0;
-    signal output_temp        : signed(23 downto 0) := (Others => '1');
-    signal is_computing       : std_logic := '0';
+    signal counter             : integer   := 0;
+    signal output_temp         : signed(23 downto 0) := (Others => '1');
+    signal is_computing        : std_logic := '0';
 	
 begin
 
     -- OUTPUT ASSIGNMENTS --
-    balance_control <= output_temp;
-    balance_control_2 <= to_signed(counter, 24);
-
     s_axis_tready <= s_axis_tready_int;
     m_axis_tvalid <= m_axis_tvalid_int;
 	
@@ -86,21 +75,15 @@ begin
                 balance_temp <= balance_integer - 512;
 
                 if balance_temp > 0 then
-
                     LorR <= '1';
-
-                else 
-                    
+                else    
                     LorR <= '0';
-
                 end if;
 
                 if LorR = '1' then
 
                     counter <= (balance_temp + SPAN_HALF)/SPAN;
                     is_computing <= '1';
-                    --output_temp(output_temp'high-1 downto counter) <= output_temp(output_temp'high-1-counter downto 0);
-                    --output_temp(0 to counter - 1) <= (Others => '0');
                     
                 end if;
 
@@ -108,9 +91,6 @@ begin
 
                     counter <= -(balance_temp - SPAN_HALF)/SPAN;
                     is_computing <= '1';
-                    --output_temp(output_temp'high downto output_temp'high-counter + 1) <= (Others => output_temp(output_temp'high));
-                    --output_temp(output_temp'high - counter downto 0) <= output_temp(output_temp'high downto counter);
-                    --output_temp <= shift_right(output_temp, counter);
                     
                 end if;
 
@@ -162,7 +142,6 @@ begin
                 end if;
 
             else s_axis_tready_int <= '1';
-
             end if;
             
             -- MASTER --
