@@ -27,8 +27,18 @@ entity dual_moving_average is
         m_axis_tvalid : out std_logic;
         m_axis_tlast : out std_logic;
         m_axis_tdata : out std_logic_vector(23 DOWNTO 0);
-        m_axis_tready : in std_logic
+        m_axis_tready : in std_logic;
 
+        --debug
+        debug_1 : out std_logic_vector(29 DOWNTO 0); 
+        debug_2 : out std_logic_vector(29 DOWNTO 0);
+        debug_3 : out std_logic_vector(29 DOWNTO 0); 
+        debug_4 : out std_logic_vector(29 DOWNTO 0);
+        debug_5 : out std_logic;
+        debug_6 : out std_logic;
+        debug_7 : out std_logic;
+        debug_8 : out signed (10  downto 0);
+        debug_9 : out std_logic
     );
     end dual_moving_average;
     
@@ -41,7 +51,7 @@ architecture Behavioral of dual_moving_average is
 
     signal counter_dx : integer := 0;
     signal counter_sx : integer := 0;
-
+    
     signal sum_dx :     std_logic_vector(29 DOWNTO 0) := (Others => '0'); --fix this with generics
     signal sum_sx :     std_logic_vector(29 DOWNTO 0) := (Others => '0'); --why is this std_logc_vect?
 
@@ -60,8 +70,19 @@ architecture Behavioral of dual_moving_average is
     signal counter : integer := 0;
     signal is_computing : std_logic := '0';
 
+
 begin
-    
+
+    debug_1 <= sum_dx;
+    debug_2 <= sum_sx;
+    debug_3 <= average_dx;
+    debug_4 <= average_sx;
+    debug_5 <= is_filter;
+    debug_6 <= m_axis_tlast_temp;
+    debug_7 <= new_data;
+    debug_8 <= to_signed(counter, 11);
+    debug_9 <= is_computing;
+
     s_axis_tready <= s_axis_tready_int;
     m_axis_tvalid <= m_axis_tvalid_int;
 
@@ -83,6 +104,8 @@ begin
 
             if filter_enable = '1' then
                 is_filter <= not is_filter;
+                counter_dx <= 0;
+                counter_sx <= 0;
             end if;
 
                 --slave--------------      
@@ -95,10 +118,11 @@ begin
                     if s_axis_tlast = '1' then
                         if counter_dx = 32 then
                             sum_dx <= std_logic_vector(signed(sum_dx) - signed(mem_dx(0)));
-                            mem_dx <= s_axis_tdata & mem_dx(31 downto 1);
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(mem_dx(31))); --this is wrong, you should add the value from tdata
+                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
+                            mem_dx <= s_axis_tdata & mem_dx(FILTER_DEPTH-1 downto 1);                            
                             m_axis_tlast_temp <= s_axis_tlast;
                             counter <= counter_const;
+                            average_dx <= sum_dx; --I have one cycle delay in the output
                             is_computing <= '1';
                         else
                             mem_dx(counter_dx) <= s_axis_tdata;
@@ -112,10 +136,11 @@ begin
                     else
                         if counter_sx = 32 then
                             sum_sx <= std_logic_vector(signed(sum_sx) - signed(mem_sx(0)));
-                            mem_sx <= s_axis_tdata & mem_sx(31 downto 1);
-                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(mem_sx(31)));
+                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
+                            mem_sx <= s_axis_tdata & mem_sx(FILTER_DEPTH-1 downto 1);                            
                             m_axis_tlast_temp <= s_axis_tlast;    
                             counter <= counter_const; 
+                            average_sx <= sum_sx;
                             is_computing <= '1';     
                         else 
                             mem_sx(counter_sx) <= s_axis_tdata;
@@ -132,25 +157,36 @@ begin
                     new_data <= '1';
                 end if;
             end if;
-
+        
             if is_computing = '1' then
                 s_axis_tready_int <= '0';
 
-                if counter /= 0 then
+                if counter /= 0 then --division
 
                     if m_axis_tlast_temp = '1' then
 
-                        sum_dx <= sum_dx(sum_dx'HIGH) & sum_dx(sum_dx'HIGH downto 1);
-                        m_axis_tdata_int <= sum_dx(23 DOWNTO 0);
+                        average_dx <= average_dx(average_dx'HIGH) & average_dx(average_dx'HIGH downto 1);
 
                     elsif m_axis_tlast_temp = '0' then
 
-                        sum_sx <= sum_sx(sum_sx'HIGH) & sum_sx(sum_sx'HIGH downto 1);
-                        m_axis_tdata_int <= sum_sx(23 DOWNTO 0);
+                        average_sx <= average_sx(average_sx'HIGH) & average_sx(average_sx'HIGH downto 1);
 
                     end if;
 
+                    counter <= counter - 1;
+
                 elsif counter = 0 then
+
+                    if m_axis_tlast_temp = '1' then
+
+                        m_axis_tdata_int <= average_dx(23 DOWNTO 0);
+
+                    elsif m_axis_tlast_temp = '0' then
+
+                        m_axis_tdata_int <= average_sx(23 DOWNTO 0);
+
+                    end if;
+
                     is_computing <= '0';
                     new_data <= '1';
                 end if;  

@@ -27,10 +27,10 @@ entity dual_moving_average is
         reset : in std_logic;
 
         --debug
-        debug_1 : out std_logic_vector(29 downto 0);
-        debug_2 : out std_logic_vector(29 downto 0);
-        debug_3 : out std_logic_vector(29 downto 0);
-        debug_4 : out std_logic_vector(29 downto 0);
+        debug_1 : out std_logic_vector(30    downto 0);
+        debug_2 : out std_logic_vector(30 downto 0);
+        debug_3 : out std_logic_vector(30 downto 0);
+        debug_4 : out std_logic_vector(30 downto 0);
         debug_5 : out std_logic;
         debug_6 : out std_logic;
         debug_7 : out std_logic;

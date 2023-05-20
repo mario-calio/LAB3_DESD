@@ -83,7 +83,7 @@ begin
         elsif rising_edge(aclk) then
 
             if filter_enable = '1' then
-                is_filter <= '1'';
+                is_filter <= '1';
             else
                 is_filter <= '0';
                 counter_sx <= 0;
@@ -102,19 +102,19 @@ begin
                             --I reached 32 counts so I have to remove the first number of the vector that doesn't belong anymore to the average depth
                             average_dx <= std_logic_vector(signed(average_dx) - signed(mem_dx(0)));
                             --I substitute the new entering data inside the memory to keep track of it
-                            mem_dx <= (s_axis_tdata[17 downto 0]&(Others => '0')) & mem_dx(31 downto 1);
+                            mem_dx <= s_axis_tdata(18 downto 0)&(Others => '0') & mem_dx(31 downto 1);
                             --I add the new averaged data in order to get the average to be put on the master
                             average_dx <= std_logic_vector(signed(average_dx) + signed(mem_dx(31)));
                             --Assignment of internal tlast and tdata
                             m_axis_tlast_int <= s_axis_tlast;
-                            m_axis_tdata_int <= average_dx[29 DOWNTO 5];
+                            m_axis_tdata_int <= average_dx(29 DOWNTO 5);
                             --The data to be transfered is new
                             new_data <= '1';
                             --The computation of the data to be transfered has finished and I'm ready to acquire new ones
                             is_computing <= '0';
                         else
                             --I shift the entering data of N positions (in MSB direction) and I add zeros in order to get the division of 2^N of each sample
-                            mem_dx(counter_dx) <= s_axis_tdata[s_axis_tdata[17 downto 0] & (Others => '0')];
+                            mem_dx(counter_dx) <= s_axis_tdata(17 downto 0) & (Others => '0');
                             --I start to compute the average acquisition after acquisition
                             average_dx <= std_logic_vector(signed(average_dx) + signed(mem_sx(counter_dx)));
                             counter_dx  <= counter_dx + 1;
@@ -128,15 +128,15 @@ begin
                     else
                         if counter_sx = 32 then
                             average_sx <= std_logic_vector(signed(average_sx) - signed(mem_sx(0)));
-                            mem_sx <= s_axis_tdata[17 downto 0] & mem_sx(31 downto 1);
+                            mem_sx <= s_axis_tdata(17 downto 0) & mem_sx(31 downto 1);
                             average_sx <= std_logic_vector(signed(average_sx) + signed(mem_sx(31)));
-                            m_axis_tlast_temp <= s_axis_tlast;
-                            m_axis_tdata_int <= average_sx[29 DOWNTO 5];  
+                            m_axis_tlast_int <= s_axis_tlast;
+                            m_axis_tdata_int <= average_sx(29 DOWNTO 5);  
                             new_data <= '1'; 
                             --counter <= counter_const;
                             is_computing <= '0';     
                         else 
-                            mem_sx(counter_dx) <= s_axis_tdata[s_axis_tdata[17 downto 0] & (Others => '0')];
+                            mem_sx(counter_dx) <= s_axis_tdata(17 downto 0) & (Others => '0');
                             average_sx <= std_logic_vector(signed(average_sx) + signed(mem_sx(counter_sx)));
                             counter_sx  <= counter_sx + 1;
                             m_axis_tdata_int <= s_axis_tdata;
@@ -185,7 +185,7 @@ begin
             if new_data <= '1' and m_axis_tvalid_int = '0' then
                 
                 m_axis_tdata <= m_axis_tdata_int;
-                m_axis_tlast <= m_axis_tlast_temp;
+                m_axis_tlast <= m_axis_tlast_int;
                 m_axis_tvalid_int <= '1';
                 new_data <= '0';
             end if;
