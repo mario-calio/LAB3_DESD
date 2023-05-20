@@ -88,19 +88,19 @@ begin
     
     
     
-    debug_1 <= sum_dx;
-    debug_2 <= sum_sx;
-    debug_3 <= output_temp;
+    debug_1 <= std_logic_vector(sum_dx);
+    debug_2 <= std_logic_vector(sum_sx);
+    debug_3 <= std_logic_vector(output_temp);
     -- debug_4 <= average_sx;
     debug_5 <= is_filtering;
     --debug_6 <= m_axis_tlast_temp;
     --debug_7 <= new_data;
     debug_8 <= to_signed(counter, 11);
     --debug_9 <= is_computing;
-    debug_10 <= mem_sx (0);
-    debug_11 <= mem_sx (mem_sx'HIGH);
-    debug_12 <= mem_dx (0);
-    debug_13 <= mem_dx (mem_dx'HIGH);
+    debug_10 <= signed(mem_sx (0));
+    debug_11 <= signed(mem_sx (mem_sx'HIGH));
+    debug_12 <= signed(mem_dx (0));
+    debug_13 <= signed(mem_dx (mem_dx'HIGH));
 
 
 
@@ -201,7 +201,7 @@ begin
     
                     elsif counter = 0 then
                         
-                        m_axis_tdata_int_left <= output_temp (23 downto 0);
+                        m_axis_tdata_int_left <= std_logic_vector(output_temp (23 downto 0));
                         state <= OUTPUT_LEFT;
 
                     end if;
@@ -216,7 +216,7 @@ begin
     
                     elsif counter = 0 then
                         
-                        m_axis_tdata_int_right <= output_temp (23 downto 0);
+                        m_axis_tdata_int_right <= std_logic_vector(output_temp (23 downto 0));
                         state <= OUTPUT_LEFT;
 
                     end if;
