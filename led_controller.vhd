@@ -10,7 +10,9 @@ entity led_controller is
         
         led_b : out std_logic_vector (7 downto 0);
         led_g : out std_logic_vector (7 downto 0);
-        led_r : out std_logic_vector (7 downto 0)
+        led_r : out std_logic_vector (7 downto 0);
+        aclk  : out std_logic;
+        reset : out std_logic
     );
 end led_controller;
 
@@ -23,71 +25,47 @@ architecture Behavioral of led_controller is
     signal is_filter : std_logic := '0';
 
 begin
-
-
-    
-    process (is_mute, is_filter, mute_enable, filter_enable, led_on, led_off)
+        
+    process (aclk, reset)
         
         begin
 
-            if mute_enable = '1' then
-                is_mute <= not is_mute;
-            end if;
+        if reset ='1' then 
 
-            if filter_enable = '1' then
-                is_filter <= not is_filter;
-            end if;
-            
-            
-            if is_mute = '1' then
-                led_r <= led_on;
-                led_g <= led_off;
-                led_b <= led_off;  
-            
-            else 
-                if is_filter = '1' then
-                    led_r <= led_off;
+            is_mute <= '0';
+            is_filter <= '0';
+
+        else 
+            if rising_edge(aclk) then
+
+                if mute_enable = '1' then
+                    is_mute <= not is_mute;
+                end if;
+
+                if filter_enable = '1' then
+                    is_filter <= not is_filter;
+                end if;
+                
+                
+                if is_mute = '1' then
+                    led_r <= led_on;
                     led_g <= led_off;
-                    led_b <= led_on;
+                    led_b <= led_off;  
+                
                 else 
-                    led_r <= led_off;
-                    led_g <= led_on;
-                    led_b <= led_off;
+                    if is_filter = '1' then
+                        led_r <= led_off;
+                        led_g <= led_off;
+                        led_b <= led_on;
+                    else 
+                        led_r <= led_off;
+                        led_g <= led_on;
+                        led_b <= led_off;
+                    end if;
                 end if;
             end if;
-        end process;
-        
---    process(mute_enable,filter_enable, is_mute, is_filter)
-
---         begin    
-
---             if mute_enable = '1' then
---                 is_mute <= not is_mute;
---             end if;
-
---             if filter_enable = '1' then
---                 is_filter <= not is_filter;
---             end if;
-            
---             if is_mute = '1' then 
-
---                 led_r <= led_on;
---                 led_g <= led_off;
---                 led_b <= led_off;                
-                
---             elsif is_filter = '1' then
---                 led_r <= led_off;
---                 led_g <= led_off;
---                 led_b <= led_on;
-                
---             else
---                 led_r <= led_off;
---                 led_g <= led_on;
---                 led_b <= led_off;
---             end if;
-            
---     end process;
-    
+        end if;
+    end process;    
 end architecture;
 
           
