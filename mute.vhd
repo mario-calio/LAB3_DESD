@@ -4,13 +4,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity mute is
 
     port (
-        -- S-AXI --
+        -- S-AXIS --
         s_axis_tvalid	: in STD_LOGIC;
 		s_axis_tdata	: in STD_LOGIC_VECTOR(23 downto 0);
         s_axis_tready	: out STD_LOGIC; 
         s_axis_tlast    : in STD_LOGIC; 
         
-        -- M-AXI --
+        -- M-AXIS --
         m_axis_tvalid	: out STD_LOGIC; 
 		m_axis_tdata	: out STD_LOGIC_VECTOR(23 downto 0);
 		m_axis_tready	: in STD_LOGIC;
