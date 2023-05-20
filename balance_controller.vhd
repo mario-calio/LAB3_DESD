@@ -68,13 +68,14 @@ begin
 
         elsif rising_edge(aclk) then
 
+            -- ACQUISITION OF TDATA --
             if s_axis_tready_int = '1' and s_axis_tvalid = '1' then
 
                 m_axis_tlast_temp <= s_axis_tlast;
                 output_temp <= signed(s_axis_tdata); 
                 balance_temp <= balance_integer - 512;
 
-                if balance_temp > 0 then
+                if balance_temp > 0 then -- If you move the joystick to the right you divide the volume to the left and vice versa
                     LorR <= '1';
                 else    
                     LorR <= '0';
@@ -82,8 +83,8 @@ begin
 
                 if LorR = '1' then
 
-                    counter <= (balance_temp + SPAN_HALF)/SPAN;
-                    is_computing <= '1';
+                    counter <= (balance_temp + SPAN_HALF)/SPAN; -- Here, we understand by how much we have to divide the channel's volume
+                    is_computing <= '1'; -- When we flag this to 1 we set the ready to 0
                     
                 end if;
 
@@ -95,12 +96,13 @@ begin
                 end if;
 
             end if;
-
+            ---------
+            -- OPERATIONS ON VOLUME --
             if is_computing = '1' then
 
                 s_axis_tready_int <= '0';
 
-                if counter /= 0 then
+                if counter /= 0 then -- We divide counter times by two
 
                     if LorR = '1' then
 
@@ -110,7 +112,7 @@ begin
 
                         else 
 
-                            counter <= 1; -- exit from the loop if it doesn't have to act on the signal
+                            counter <= 1; -- If the sample comes from the opposite channel we set the counter to one to exit the loop otherwise we reduce it
 
                         end if;
 
@@ -143,7 +145,7 @@ begin
 
             else s_axis_tready_int <= '1';
             end if;
-            
+            ------------
             -- MASTER --
             if new_data = '1' and m_axis_tvalid_int = '0' then
 

@@ -44,7 +44,8 @@ architecture Behavioral of dual_moving_average is
     signal is_filtering : std_logic := '0'; -- Flag used to understand if the filter is active or not   
 
     signal mem_dx :  MEM_ARRAY := (Others => (Others => '0')); -- We use two different memories for left and right channel
-
+    signal mem_sx :  MEM_ARRAY := (Others => (Others => '0'));
+    
     signal sum_dx :     signed(24+counter_const DOWNTO 0) := (Others => '0'); -- Auxiliary signal used to sum all the arrays in the memory
     signal sum_sx :     signed(24+counter_const DOWNTO 0) := (Others => '0'); -- Same thing for the left channel
     signal output_temp : signed(24+counter_const DOWNTO 0) := (Others => '0');
