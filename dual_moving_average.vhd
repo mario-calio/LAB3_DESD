@@ -1,7 +1,7 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.math_real.all;
-use IEEE.numeric_std.all;
+    use IEEE.STD_LOGIC_1164.all;
+    use IEEE.math_real.all;
+    use IEEE.numeric_std.all;
 
 entity dual_moving_average is 
 
@@ -15,202 +15,191 @@ entity dual_moving_average is
         aresetn : in std_logic;
         filter_enable : in std_logic;
 
-        -- For serial??? (slv mode) communication with I2S--
+        -- Slave
 
         s_axis_tvalid : in std_logic;
         s_axis_tlast : in std_logic;
         s_axis_tdata : in std_logic_vector(23 DOWNTO 0);
         s_axis_tready : out std_logic;
 
-        -- For serial??? (master mode) communication with balance controller --
+        -- Master
 
         m_axis_tvalid : out std_logic;
         m_axis_tlast : out std_logic;
         m_axis_tdata : out std_logic_vector(23 DOWNTO 0);
-        m_axis_tready : in std_logic;
-
-        --debug
-        debug_1 : out std_logic_vector(29 DOWNTO 0); 
-        debug_2 : out std_logic_vector(29 DOWNTO 0);
-        debug_3 : out std_logic_vector(29 DOWNTO 0); 
-        debug_4 : out std_logic_vector(29 DOWNTO 0);
-        debug_5 : out std_logic;
-        debug_6 : out std_logic;
-        debug_7 : out std_logic;
-        debug_8 : out signed (10  downto 0);
-        debug_9 : out std_logic
+        m_axis_tready : in std_logic
     );
+    
     end dual_moving_average;
     
 architecture Behavioral of dual_moving_average is 
-    
-    type   MEM_ARRAY  is  array(FILTER_DEPTH-1 DOWNTO 0) of std_logic_vector(23 downto 0);
 
-    signal mem_dx :  MEM_ARRAY := (Others => (Others => '0'));
+    constant counter_const : integer := integer(log2(real(FILTER_DEPTH))); -- We use this constant to deal with the changing generic
+
+    type   MEM_ARRAY  is  array(FILTER_DEPTH-1 DOWNTO 0) of std_logic_vector(23 downto 0); -- We use a matrix to store the data
+    
+    type   state_type is (WAITING, GET_LEFT, GET_RIGHT, COMPUTING_LEFT, COMPUTING_RIGHT, OUTPUT_LEFT, OUTPUT_RIGHT); -- We use a state machine to deal with axi protocol
+    signal state : state_type := WAITING; 
+
+    signal is_filtering : std_logic := '0'; -- Flag used to understand if the filter is active or not   
+
+    signal mem_dx :  MEM_ARRAY := (Others => (Others => '0')); -- We use two different memories for left and right channel
     signal mem_sx :  MEM_ARRAY := (Others => (Others => '0'));
-
-    signal counter_dx : integer := 0;
-    signal counter_sx : integer := 0;
     
-    signal sum_dx :     std_logic_vector(29 DOWNTO 0) := (Others => '0'); --fix this with generics
-    signal sum_sx :     std_logic_vector(29 DOWNTO 0) := (Others => '0'); --why is this std_logc_vect?
+    signal sum_dx :     signed(24+counter_const DOWNTO 0) := (Others => '0'); -- Auxiliary signal used to sum all the arrays in the memory
+    signal sum_sx :     signed(24+counter_const DOWNTO 0) := (Others => '0'); -- Same thing for the left channel
+    signal output_temp : signed(24+counter_const DOWNTO 0) := (Others => '0');
+    signal counter : integer := 0; -- We use this counter to calulate the average below
 
-    signal average_dx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
-    signal average_sx : std_logic_vector(29 DOWNTO 0) := (Others => '0');
     
+    -- Intermediate signals --
+
     signal s_axis_tready_int : std_logic := '1';
-    signal m_axis_tdata_int : std_logic_vector (23 DOWNTO 0) := (Others => '0');
+    signal m_axis_tdata_int_right  : std_logic_vector (23 DOWNTO 0) := (Others => '0');
+    signal m_axis_tdata_int_left : std_logic_vector (23 DOWNTO 0) := (Others => '0');
     signal m_axis_tvalid_int : std_logic := '0';
-    signal m_axis_tlast_temp  : std_logic := '0';
-    signal new_data          : std_logic := '0';
-
-    signal is_filter : std_logic := '0';
-
-    constant counter_const : integer := integer(log2(real(FILTER_DEPTH)))+1;
-    signal counter : integer := 0;
-    signal is_computing : std_logic := '0';
-
+    signal m_axis_tlast_int  : std_logic := '0';
 
 begin
 
-    debug_1 <= sum_dx;
-    debug_2 <= sum_sx;
-    debug_3 <= average_dx;
-    debug_4 <= average_sx;
-    debug_5 <= is_filter;
-    debug_6 <= m_axis_tlast_temp;
-    debug_7 <= new_data;
-    debug_8 <= to_signed(counter, 11);
-    debug_9 <= is_computing;
+   s_axis_tready <= s_axis_tready_int;
+   m_axis_tvalid <= m_axis_tvalid_int;
 
-    s_axis_tready <= s_axis_tready_int;
-    m_axis_tvalid <= m_axis_tvalid_int;
+    with state select s_axis_tready_int <=
+        '0' when  WAITING, 
+        '1' when  GET_LEFT,
+        '1' when  GET_RIGHT,
+        '0' when  COMPUTING_LEFT,
+        '0' when  COMPUTING_RIGHT,
+        '0' when  OUTPUT_LEFT,
+        '0' when  OUTPUT_RIGHT;            
+    
+    with state select m_axis_tlast <=
+        '0' when OUTPUT_LEFT,
+        '1' when OUTPUT_RIGHT,
+        'X' when others;
+    
+    with state select m_axis_tvalid_int <=
+        '1' when OUTPUT_LEFT,
+        '1' when OUTPUT_RIGHT,
+        '0' when others;
+    
+    with state select m_axis_tdata <=
+        m_axis_tdata_int_left when OUTPUT_LEFT,
+        m_axis_tdata_int_right when OUTPUT_RIGHT,
+        ((others => '0')) when others; 
+        
+    FSM : process (aclk,aresetn)
 
-    process (aclk,aresetn)
-
-    begin   
+    begin  
 
         if aresetn = '0' then
             
-            counter_dx <= 0;
-            counter_sx <= 0;
-            s_axis_tready_int <= '1';
-            m_axis_tvalid_int <= '0';
-            new_data <= '0';
-            is_computing <= '0';
-            counter <= 0;
+            state <= WAITING;
+            is_filtering <= '0';
 
         elsif rising_edge(aclk) then
 
             if filter_enable = '1' then
-                is_filter <= not is_filter;
-                counter_dx <= 0;
-                counter_sx <= 0;
+                is_filtering <= not is_filtering;
             end if;
 
-                --slave--------------      
-                 --If data is valid from the master
-            if s_axis_tvalid = '1' and s_axis_tready_int = '1' then
-                --I check if the filter is enabled 
-
-                if is_filter = '1' then
-                    --I check what channel is the data for
-                    if s_axis_tlast = '1' then
-                        if counter_dx = 32 then
-                            sum_dx <= std_logic_vector(signed(sum_dx) - signed(mem_dx(0)));
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
-                            mem_dx <= s_axis_tdata & mem_dx(FILTER_DEPTH-1 downto 1);                            
-                            m_axis_tlast_temp <= s_axis_tlast;
-                            counter <= counter_const;
-                            average_dx <= sum_dx; --I have one cycle delay in the output
-                            is_computing <= '1';
-                        else
-                            mem_dx(counter_dx) <= s_axis_tdata;
-                            sum_dx <= std_logic_vector(signed(sum_dx) + signed(s_axis_tdata));
-                            counter_dx  <= counter_dx + 1;
-                            m_axis_tdata_int <= s_axis_tdata;
-                            m_axis_tlast_temp <= s_axis_tlast;
-                            new_data <= '1';
-                        end if;
-                            
+            case (state) is
+                
+                when WAITING =>
+                
+                    if s_axis_tlast = '0' then
+                        state <= GET_LEFT;
                     else
-                        if counter_sx = 32 then
-                            sum_sx <= std_logic_vector(signed(sum_sx) - signed(mem_sx(0)));
-                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
-                            mem_sx <= s_axis_tdata & mem_sx(FILTER_DEPTH-1 downto 1);                            
-                            m_axis_tlast_temp <= s_axis_tlast;    
-                            counter <= counter_const; 
-                            average_sx <= sum_sx;
-                            is_computing <= '1';     
-                        else 
-                            mem_sx(counter_sx) <= s_axis_tdata;
-                            sum_sx <= std_logic_vector(signed(sum_sx) + signed(s_axis_tdata));
-                            counter_sx  <= counter_sx + 1;
-                            m_axis_tdata_int <= s_axis_tdata;
-                            m_axis_tlast_temp <= s_axis_tlast;
-                            new_data <= '1';
+                        state <= GET_RIGHT;
+                    end if;
+
+                when GET_LEFT =>
+                    
+                    if s_axis_tvalid = '1' and s_axis_tready_int = '1' then 
+                        
+                        if is_filtering = '1' then
+                            mem_sx <= s_axis_tdata & mem_sx(FILTER_DEPTH-1 downto 1);    -- We put the first data in the 32-th spot and shift the memory
+
+                    -- Below, we sum the last data and subtract the first to arrive.
+                    -- To be fair it's not right untill the 32-th cycle,
+                    -- but we figured it was ok since the time at which this mistake solves itself is little.
+                        
+                            sum_sx <= sum_sx + signed(s_axis_tdata) - signed(mem_sx(0));
+                            output_temp <= sum_sx;
+                                                                                         
+                            counter <= counter_const;
+                            state <= COMPUTING_LEFT; -- In computing we compute the average of the sum
+                        else
+                            m_axis_tdata_int_left <= s_axis_tdata;
+                            state <= OUTPUT_LEFT;
                         end if;
-                    end if;
-                else
-                    m_axis_tdata_int <= s_axis_tdata;
-                    m_axis_tlast_temp <= s_axis_tlast;
-                    new_data <= '1';
-                end if;
-            end if;
-        
-            if is_computing = '1' then
-                s_axis_tready_int <= '0';
-
-                if counter /= 0 then --division
-
-                    if m_axis_tlast_temp = '1' then
-
-                        average_dx <= average_dx(average_dx'HIGH) & average_dx(average_dx'HIGH downto 1);
-
-                    elsif m_axis_tlast_temp = '0' then
-
-                        average_sx <= average_sx(average_sx'HIGH) & average_sx(average_sx'HIGH downto 1);
 
                     end if;
 
-                    counter <= counter - 1;
+                when GET_RIGHT =>
+                    
+                    if s_axis_tvalid = '1' and s_axis_tready_int = '1' then 
+                    
+                        if is_filtering = '1' then
+                            mem_dx <= s_axis_tdata & mem_dx(FILTER_DEPTH - 1 downto 1);
+                            sum_dx <= sum_dx + signed(s_axis_tdata) - signed(mem_dx(0));
+                            output_temp <= sum_dx;
+                            counter <= counter_const;
+                            state <= COMPUTING_RIGHT;
+                        else
+                            m_axis_tdata_int_right <= s_axis_tdata;
+                            state <= OUTPUT_RIGHT;
+                        end if;
+                        
+                    end if;
+                    
+                when COMPUTING_LEFT => -- We average by shifting the array right every cycle for counter times
 
-                elsif counter = 0 then
+                    if counter /= 0 then
 
-                    if m_axis_tlast_temp = '1' then
-
-                        m_axis_tdata_int <= average_dx(23 DOWNTO 0);
-
-                    elsif m_axis_tlast_temp = '0' then
-
-                        m_axis_tdata_int <= average_sx(23 DOWNTO 0);
+                        output_temp <= output_temp(output_temp'HIGH) & output_temp(output_temp'HIGH downto 1); 
+    
+                        counter <= counter - 1;
+    
+                    elsif counter = 0 then
+                        
+                        m_axis_tdata_int_left <= std_logic_vector(output_temp (23 downto 0));
+                        state <= OUTPUT_LEFT;
 
                     end if;
-
-                    is_computing <= '0';
-                    new_data <= '1';
-                end if;  
-            else 
-                s_axis_tready_int <= '1';
-            end if;
-
-            --------------
-            --- master-----
-            
-            if new_data <= '1' and m_axis_tvalid_int = '0' then
+                    
                 
-                m_axis_tdata <= m_axis_tdata_int;
-                m_axis_tlast <= m_axis_tlast_temp;
-                m_axis_tvalid_int <= '1';
-                new_data <= '0';
+                when COMPUTING_RIGHT =>
 
-            end if;
+                    if counter /= 0 then
+                        output_temp <= output_temp(output_temp'HIGH) & output_temp(output_temp'HIGH downto 1);
+    
+                        counter <= counter - 1;
+    
+                    elsif counter = 0 then
+                        
+                        m_axis_tdata_int_right <= std_logic_vector(output_temp (23 downto 0));
+                        state <= OUTPUT_RIGHT;
 
-            if m_axis_tready = '1' and m_axis_tvalid_int = '1' then
+                    end if;
+
+                when OUTPUT_LEFT =>
+
+                    if m_axis_tvalid_int = '1' and m_axis_tready = '1' then
+                        state <= GET_RIGHT;
+                    end if;
                 
-                m_axis_tvalid_int <= '0';
+                when OUTPUT_RIGHT =>
 
-            end if;
-        end if;    
+                    if m_axis_tvalid_int = '1' and m_axis_tready = '1' then
+                        state <= GET_LEFT;
+                    end if;   
+
+                end case;
+
+        end if;
+
     end process;
+           
 end architecture;
