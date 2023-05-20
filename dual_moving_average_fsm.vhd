@@ -39,11 +39,12 @@ entity dual_moving_average is
         debug_6 : out std_logic;
         debug_7 : out std_logic;
         debug_8 : out signed (10 downto 0);
-        debug_9 : out std_logic;
+        debug_9 : out std_logic_vector (2 downto 0);
         debug_10 : out signed (23 downto 0);
         debug_11 : out signed (23 downto 0);
         debug_12 : out signed (23 downto 0);
-        debug_13 : out signed (23 downto 0)
+        debug_13 : out signed (23 downto 0);
+        debug_14 : out signed (29 downto 0)
 
     );
     
@@ -96,11 +97,20 @@ begin
     --debug_6 <= m_axis_tlast_temp;
     --debug_7 <= new_data;
     debug_8 <= to_signed(counter, 11);
-    --debug_9 <= is_computing;
     debug_10 <= signed(mem_sx (0));
     debug_11 <= signed(mem_sx (mem_sx'HIGH));
     debug_12 <= signed(mem_dx (0));
     debug_13 <= signed(mem_dx (mem_dx'HIGH));
+    debug_14 <= output_temp;
+    
+    with state select debug_9 <=
+        "000" when  WAITING, 
+        "001" when  GET_LEFT,
+        "010" when  GET_RIGHT,
+        "011" when  COMPUTING_LEFT,
+        "100" when  COMPUTING_RIGHT,
+        "101" when  OUTPUT_LEFT,
+        "110" when  OUTPUT_RIGHT;
 
 
 
@@ -217,7 +227,7 @@ begin
                     elsif counter = 0 then
                         
                         m_axis_tdata_int_right <= std_logic_vector(output_temp (23 downto 0));
-                        state <= OUTPUT_LEFT;
+                        state <= OUTPUT_RIGHT;
 
                     end if;
 
