@@ -40,12 +40,12 @@ architecture Behavioral of volume_controller is
      
     
     signal volume_integer     : integer   := to_integer(unsigned(volume));
-    signal volume_temp        : integer   := to_integer(unsigned(volume));
+    signal volume_temp        : signed (9 downto 0)  := (others => '0') ;
     signal DorM               : std_logic := '0'; -- 0 is division, 1 is multiplication
     signal m_axis_tlast_temp  : std_logic := '0';
 
     signal s_axis_tready_int  : std_logic := '1';
-    signal m_axis_tvalid_int   : std_logic := '0';
+    signal m_axis_tvalid_int  : std_logic := '0';
     signal new_data           : std_logic := '0';
 
     signal counter            : integer := 0;
@@ -75,7 +75,7 @@ begin
                 output_temp <= signed(s_axis_tdata);
 
 
-                volume_temp <= volume_integer - 512;
+                volume_temp <= to_signed(volume_integer - 512, 10);
 
                 if volume_temp > 0 then
                     DorM <= '1';
@@ -84,7 +84,10 @@ begin
 
                 if DorM = '1' then
 
-                    counter <= (volume_temp + SPAN_HALF)/SPAN; --fix this, takes too much time
+                    volume_temp <= volume_temp + to_signed(SPAN_HALF,10);
+                    counter <= to_integer(volume_temp(volume_temp'HIGH downto N_VALUE));
+
+                    --counter <= (volume_temp + SPAN_HALF)/SPAN; --fix this, takes too much time
 
                     is_computing <= '1';
 
@@ -93,7 +96,11 @@ begin
 
                 if DorM = '0' then
 
-                    counter <= -(volume_temp - SPAN_HALF)/SPAN;
+                    volume_temp <= volume_temp - to_signed(SPAN_HALF,10);
+                    volume_temp <= -volume_temp;
+                    counter <= to_integer(volume_temp(volume_temp'HIGH downto N_VALUE));
+
+                    --counter <= -(volume_temp - SPAN_HALF)/SPAN;
 
                     is_computing <= '1';
                         
