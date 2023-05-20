@@ -11,8 +11,8 @@ entity led_controller is
         led_b : out std_logic_vector (7 downto 0);
         led_g : out std_logic_vector (7 downto 0);
         led_r : out std_logic_vector (7 downto 0);
-        aclk  : out std_logic;
-        reset : out std_logic
+        aclk  : in std_logic;
+        reset : in std_logic
     );
 end led_controller;
 
