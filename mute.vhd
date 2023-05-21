@@ -30,8 +30,8 @@ end mute;
 architecture Behavioral of mute is
 
     -- HANDLING INCOMING SIGNAL --
-    signal muted_signal  : STD_LOGIC_VECTOR(23 downto 0) := (others => '0');
-    signal unmuted_signal : STD_LOGIC_VECTOR(23 downto 0);
+    signal muted_signal   : STD_LOGIC_VECTOR(23 downto 0) := (others => '0');
+    signal unmuted_signal : STD_LOGIC_VECTOR(23 downto 0) := (others => '0');
 
     -- NEW DATA FOR TX CHECK --
     signal new_data          : std_logic := '0';
@@ -50,13 +50,20 @@ architecture Behavioral of mute is
         s_axis_tready <= s_axis_tready_int;
         m_axis_tvalid <= m_axis_tvalid_int;
 
-        process(aclk)
+        process(aclk, reset)
 
         begin
 
             if reset = '1' then
-
+            
                 new_data <= '0';
+                muted_signal <= ((others => '0'));
+                unmuted_signal <= ((others => '0'));
+                s_axis_tready_int <= '1';
+                m_axis_tvalid_int <= '0';
+                m_axis_tlast_temp <= '0';
+                is_mute <= '0';
+                
 
             elsif rising_edge (aclk) then
 

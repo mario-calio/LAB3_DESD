@@ -36,8 +36,8 @@ architecture Behavioral of balance_controller is
     constant SPAN_HALF         : integer   := SPAN / 2; -- The first interval is wide half in the positive and negative directions in the axis centered in 0  
 
     -- SIGNALS DECLARATION --
-    signal balance_integer     : integer range -1000 to 1200  := to_integer(unsigned(balance)); -- We cast this value to an integer to then subtract it by 512 and put it into balance_temp to center the axis in 0
-    signal balance_temp        : integer  range -1000 to 1200 := to_integer(unsigned(balance));
+    signal balance_integer     : integer range -1300 to 1300  := 0; -- We cast this value to an integer to then subtract it by 512 and put it into balance_temp to center the axis in 0
+    signal balance_temp        : integer  range -1300 to 1300 := 0;
     signal LorR                : std_logic := '0';                           -- LorR = shift left or shift right. 0 is left, 1 is right
     signal m_axis_tlast_temp   : std_logic := '0';
 
@@ -45,8 +45,8 @@ architecture Behavioral of balance_controller is
     signal m_axis_tvalid_int   : std_logic := '0';
     signal new_data            : std_logic := '0';
 
-    signal counter_span       : integer range -1000 to 1200 := 0;
-    signal counter            : integer range -1000 to 1200 := 0;
+    signal counter_span       : integer range -1300 to 1300 := 0;
+    signal counter            : integer range -1300 to 1300 := 0;
     signal output_temp         : signed(23 downto 0) := (Others => '1');
     signal is_computing        : std_logic := '0';
     signal is_computing_counter :std_logic := '0';
@@ -66,8 +66,18 @@ begin
 
         if aresetn = '0' then
 
+            counter_span <= 0;
             counter <= 0;
+            output_temp <= (others => '1');
+            is_computing <= '0';
+            is_computing_counter <= '0';
+            s_axis_tready_int <='1';
             m_axis_tvalid_int <= '0';
+            new_data <= '0';
+            m_axis_tlast_temp <= '0';
+            LorR <= '0';
+            balance_integer <= 0;
+            balance_temp <= 0;
 
         elsif rising_edge(aclk) then
 
@@ -90,7 +100,7 @@ begin
 
                     counter <= balance_temp + SPAN_HALF;
                     counter_span <= N_VALUE;
-                    --counter <= (balance_temp + SPAN_HALF)/SPAN; -- Here, we understand by how much we have to divide the channel's volume
+                    -- Here, we understand by how much we have to divide the channel's volume
                     is_computing_counter <= '1'; -- When we flag this to 1 we set the ready to 0
                     
                 end if;
@@ -99,13 +109,15 @@ begin
 
                     counter <= -(balance_temp - SPAN_HALF);
                     counter_span <= N_VALUE;
-                    --counter <= -(balance_temp - SPAN_HALF)/SPAN;
+    
                     is_computing_counter <= '1';
                         
                 end if;
 
             end if;
-            ---------
+            
+            -- We use this series of ifs to divide N_value times balance_temp + Span_half to get the right counter of how many times we have to divide a channel below in "operations on volume"
+
             if is_computing_counter = '1' then
 
                 s_axis_tready_int <= '0';
@@ -113,8 +125,6 @@ begin
                 if counter_span /= 0 then
 
                     counter <= counter /2;
-                    --output_temp <= output_temp(output_temp'HIGH) & output_temp(output_temp'HIGH downto 1);
-
 
                     counter_span <= counter_span - 1;
                 end if;

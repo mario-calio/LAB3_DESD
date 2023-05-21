@@ -1,2 +1,5 @@
 
 .DS_Store
+dual_moving_average_bis.vhd
+dual_moving_average_fsm.vhd
+dual_moving_average_tris.vhd

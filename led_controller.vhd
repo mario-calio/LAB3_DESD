@@ -11,6 +11,7 @@ entity led_controller is
         led_b : out std_logic_vector (7 downto 0);
         led_g : out std_logic_vector (7 downto 0);
         led_r : out std_logic_vector (7 downto 0);
+
         aclk  : in std_logic;
         reset : in std_logic
     );
@@ -32,6 +33,8 @@ begin
 
         if reset ='1' then 
 
+            led_on <= ((others => '1') );
+            led_off <= ((others => '0') );
             is_mute <= '0';
             is_filter <= '0';
 

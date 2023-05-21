@@ -39,8 +39,8 @@ architecture Behavioral of volume_controller is
     constant SPAN_HALF        : integer     := SPAN / 2;
      
     
-    signal volume_integer     : integer range -1000 to 1200  := to_integer(unsigned(volume));
-    signal volume_temp        : integer range -1000 to 1200  := to_integer(unsigned(volume));
+    signal volume_integer     : integer range -1300 to 1300  := 0;
+    signal volume_temp        : integer range -1300 to 1300  := 0;
     signal DorM               : std_logic := '0'; -- 0 is division, 1 is multiplication
     signal m_axis_tlast_temp  : std_logic := '0';
 
@@ -49,8 +49,8 @@ architecture Behavioral of volume_controller is
     signal new_data           : std_logic := '0';
 
 
-    signal counter_span       : integer range -1000 to 1200 := 0;
-    signal counter            : integer range -1000 to 1200 := 0;
+    signal counter_span       : integer range -1300 to 1300 := 0; 
+    signal counter            : integer range -1300 to 1300 := 0;
     signal output_temp        : signed(23 downto 0) := (Others => '1');
     signal is_computing       : std_logic := '0';
     signal is_computing_counter :std_logic :='0';
@@ -65,9 +65,19 @@ begin
 	process(aclk, aresetn)
     begin
         if aresetn = '0' then
+
+            counter_span <= 0;
             counter <= 0;
+            output_temp <= (others => '1');
+            is_computing <= '0';
+            is_computing_counter <= '0';
+            s_axis_tready_int <='1';
             m_axis_tvalid_int <= '0';
-            --output_temp <= (others => '0');
+            new_data <= '0';
+            m_axis_tlast_temp <= '0';
+            DorM <= '0';
+            volume_integer <= 0;
+            volume_temp <= 0;
 
         elsif rising_edge(aclk) then
            
@@ -90,17 +100,13 @@ begin
 
                     counter <= volume_temp + SPAN_HALF;
                     counter_span <= N_VALUE;
-                    --counter <= (volume_temp + SPAN_HALF)/SPAN; --fix this, takes too much time
 
                     is_computing_counter <= '1';
 
-                    
                 end if;
 
                 if DorM = '0' then
-
-                    --counter <= -(volume_temp - SPAN_HALF)/SPAN;
-                    
+  
                     counter <= -(volume_temp - SPAN_HALF);
                     counter_span <= N_VALUE;
 
@@ -110,6 +116,7 @@ begin
 
             end if;
             
+             -- We use this series of ifs to divide N_value times volume_temp + Span_half to get the right counter of how many times we have to divide a channel below in "operations on volume"
             if is_computing_counter = '1' then
 
                 s_axis_tready_int <= '0';
@@ -117,7 +124,6 @@ begin
                 if counter_span /= 0 then
 
                     counter <= counter /2;
-                    --output_temp <= output_temp(output_temp'HIGH) & output_temp(output_temp'HIGH downto 1);
 
 
                     counter_span <= counter_span - 1;
@@ -132,6 +138,7 @@ begin
                 end if;
             end if;
 
+            -- OPERATIONS ON VOLUME --
             if is_computing = '1' then
 
                 s_axis_tready_int <= '0';
