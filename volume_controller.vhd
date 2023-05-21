@@ -39,8 +39,8 @@ architecture Behavioral of volume_controller is
     constant SPAN_HALF        : integer     := SPAN / 2;
      
     
-    signal volume_integer     : integer range -1300 to 1300  := 0;
-    signal volume_temp        : integer range -1300 to 1300  := 0;
+    signal volume_integer     : integer range -1300 to 1300  := to_integer(unsigned(volume));
+    signal volume_temp        : integer range -1300 to 1300  := to_integer(unsigned(volume));
     signal DorM               : std_logic := '0'; -- 0 is division, 1 is multiplication
     signal m_axis_tlast_temp  : std_logic := '0';
 
@@ -76,8 +76,6 @@ begin
             new_data <= '0';
             m_axis_tlast_temp <= '0';
             DorM <= '0';
-            volume_integer <= 0;
-            volume_temp <= 0;
 
         elsif rising_edge(aclk) then
            

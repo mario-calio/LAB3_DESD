@@ -36,8 +36,8 @@ architecture Behavioral of balance_controller is
     constant SPAN_HALF         : integer   := SPAN / 2; -- The first interval is wide half in the positive and negative directions in the axis centered in 0  
 
     -- SIGNALS DECLARATION --
-    signal balance_integer     : integer range -1300 to 1300  := 0; -- We cast this value to an integer to then subtract it by 512 and put it into balance_temp to center the axis in 0
-    signal balance_temp        : integer  range -1300 to 1300 := 0;
+    signal balance_integer     : integer range -1300 to 1300  := to_integer(unsigned(balance)); -- We cast this value to an integer to then subtract it by 512 and put it into balance_temp to center the axis in 0
+    signal balance_temp        : integer  range -1300 to 1300 := to_integer(unsigned(balance));
     signal LorR                : std_logic := '0';                           -- LorR = shift left or shift right. 0 is left, 1 is right
     signal m_axis_tlast_temp   : std_logic := '0';
 
@@ -76,8 +76,6 @@ begin
             new_data <= '0';
             m_axis_tlast_temp <= '0';
             LorR <= '0';
-            balance_integer <= 0;
-            balance_temp <= 0;
 
         elsif rising_edge(aclk) then
 
