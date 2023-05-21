@@ -39,8 +39,8 @@ architecture Behavioral of volume_controller is
     constant SPAN_HALF        : integer     := SPAN / 2;
      
     
-    signal volume_integer     : integer   := to_integer(unsigned(volume));
-    signal volume_temp        : integer   := to_integer(unsigned(volume));
+    signal volume_integer     : integer range -1000 to 1200  := to_integer(unsigned(volume));
+    signal volume_temp        : integer range -1000 to 1200  := to_integer(unsigned(volume));
     signal DorM               : std_logic := '0'; -- 0 is division, 1 is multiplication
     signal m_axis_tlast_temp  : std_logic := '0';
 
@@ -48,9 +48,12 @@ architecture Behavioral of volume_controller is
     signal m_axis_tvalid_int   : std_logic := '0';
     signal new_data           : std_logic := '0';
 
-    signal counter            : integer := 0;
+
+    signal counter_span       : integer range -1000 to 1200 := 0;
+    signal counter            : integer range -1000 to 1200 := 0;
     signal output_temp        : signed(23 downto 0) := (Others => '1');
     signal is_computing       : std_logic := '0';
+    signal is_computing_counter :std_logic :='0';
 	
 begin
 
@@ -79,26 +82,54 @@ begin
 
                 if volume_temp > 0 then
                     DorM <= '1';
-                else DorM <= '0';
+                else
+                     DorM <= '0';
                 end if;
 
                 if DorM = '1' then
 
-                    counter <= (volume_temp + SPAN_HALF)/SPAN; --fix this, takes too much time
+                    counter <= volume_temp + SPAN_HALF;
+                    counter_span <= N_VALUE;
+                    --counter <= (volume_temp + SPAN_HALF)/SPAN; --fix this, takes too much time
 
-                    is_computing <= '1';
+                    is_computing_counter <= '1';
 
                     
                 end if;
 
                 if DorM = '0' then
 
-                    counter <= -(volume_temp - SPAN_HALF)/SPAN;
+                    --counter <= -(volume_temp - SPAN_HALF)/SPAN;
+                    
+                    counter <= -(volume_temp - SPAN_HALF);
+                    counter_span <= N_VALUE;
 
-                    is_computing <= '1';
+                    is_computing_counter <= '1';
                         
                 end if;
 
+            end if;
+            
+            if is_computing_counter = '1' then
+
+                s_axis_tready_int <= '0';
+
+                if counter_span /= 0 then
+
+                    counter <= counter /2;
+                    --output_temp <= output_temp(output_temp'HIGH) & output_temp(output_temp'HIGH downto 1);
+
+
+                    counter_span <= counter_span - 1;
+                end if;
+                
+                if counter_span = 0 then
+                    
+                    is_computing_counter <= '0';
+                    is_computing <= '1';
+
+
+                end if;
             end if;
 
             if is_computing = '1' then
@@ -138,7 +169,19 @@ begin
                     new_data <= '1';
 
                 end if;
-            else s_axis_tready_int <= '1';
+            end if;
+
+            if is_computing_counter = '0' and is_computing = '0' then
+                s_axis_tready_int <= '1';
+            end if;
+
+            --error resistance
+            if counter < 0 then
+                counter <= 0;
+            end if;
+
+            if counter_span < 0 then
+                counter_span <= 0;
             end if;
             
             --master loading--
