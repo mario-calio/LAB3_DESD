@@ -1,0 +1,1728 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun May 21 16:24:18 2023
+# Process ID: 8064
+# Current directory: C:/Users/mario/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6072
+# Log file: C:/Users/mario/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/mario/AppData/Roaming/Xilinx/Vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 999.621 ; gain = 0.000
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.2
+  **** Build date : Nov 18 2020 at 10:01:48
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+Warning: Cannot create '3000:arm' GDB server: Tentativo di accesso al socket con modalità non consentite dalle rispettive autorizzazioni di accesso
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2020.2
+  ****** Build date   : Nov 03 2020-22:02:56
+    **** Build number : 2020.2.1604437376
+      ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 999.621 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+open_hw_target: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2355.707 ; gain = 1356.086
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_1
+Adding component instance block -- DigiLAB:ip:axis_dual_i2s:1.0 - axis_dual_i2s_0
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_0
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_1
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_0
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_1
+Adding component instance block -- DigiLAB:ip:axi4stream_spi_master:1.0 - axi4stream_spi_master_0
+Adding component instance block -- xilinx.com:module_ref:digilent_jstk2:1.0 - digilent_jstk2_0
+Adding component instance block -- xilinx.com:module_ref:led_controller:1.0 - led_controller_0
+Adding component instance block -- xilinx.com:module_ref:dual_moving_average:1.0 - dual_moving_average_0
+Adding component instance block -- xilinx.com:module_ref:mute:1.0 - mute_0
+Adding component instance block -- xilinx.com:module_ref:balance_controller:1.0 - balance_controller_0
+Adding component instance block -- xilinx.com:ip:system_ila:1.1 - system_ila_0
+Adding component instance block -- xilinx.com:module_ref:volume_controller:1.0 - volume_controller_0
+Successfully read diagram <design_1> from block design file <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:24 . Memory (MB): peak = 2523.094 ; gain = 86.938
+update_compile_order -fileset sources_1
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:27:40
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:27:40.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:27:53
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:27:53.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes design_1_i/system_ila_0/U0/net_slot_0_axis_tready -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes design_1_i/system_ila_0/U0/net_slot_0_axis_tvalid -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:28:07
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:28:07.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:28:29
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:28:29.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:28:34
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:28:34.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:28:42
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:28:42.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:28:46
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:28:46.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2023-May-21 16:29:06
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+INFO: [Labtools 27-2214] The ILA core 'hw_ila_1' triggered in the last of '10' windows, at 2023-May-21 16:29:06.
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.166 . Memory (MB): peak = 2942.629 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 413 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.751 . Memory (MB): peak = 3653.699 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.758 . Memory (MB): peak = 3653.699 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 3653.699 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 194 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 184 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+open_run: Time (s): cpu = 00:00:44 ; elapsed = 00:00:59 . Memory (MB): peak = 3809.660 ; gain = 1150.812
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+CRITICAL WARNING: [HDL 9-806] Syntax error near "signal". [C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/imports/emach/Documents/GitHub/LAB3_DESD/volume_controller.vhd:52]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "signal". [C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/imports/emach/Documents/GitHub/LAB3_DESD/volume_controller.vhd:52]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "signal". [C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/imports/emach/Documents/GitHub/LAB3_DESD/volume_controller.vhd:52]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Sun May 21 16:49:48 2023] Launched synth_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 16:49:48 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+CRITICAL WARNING: [HDL 9-806] Syntax error near "si". [C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/imports/emach/Documents/GitHub/LAB3_DESD/volume_controller.vhd:51]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "si". [C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/imports/emach/Documents/GitHub/LAB3_DESD/volume_controller.vhd:51]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "si". [C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/imports/emach/Documents/GitHub/LAB3_DESD/volume_controller.vhd:51]
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+Processing Interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processing Interface balance_controller_0_m_axis_ila1_slot1
+Processing Interface dual_moving_average_0_m_axis1_ila1_slot2
+Processing Interface mute_0_m_axis_ila1_slot3
+Processing Interface volume_controller_0_m_axis_ila1_slot4
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+Processing Interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processing Interface balance_controller_0_m_axis_ila1_slot1
+Processing Interface dual_moving_average_0_m_axis1_ila1_slot2
+Processing Interface mute_0_m_axis_ila1_slot3
+Processing Interface volume_controller_0_m_axis_ila1_slot4
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+Processed interface axis_dual_i2s_0_m_axis_ila1_slot0
+Processed interface balance_controller_0_m_axis_ila1_slot1
+Processed interface dual_moving_average_0_m_axis1_ila1_slot2
+Processed interface mute_0_m_axis_ila1_slot3
+Processed interface volume_controller_0_m_axis_ila1_slot4
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets counter_out] [get_bd_nets voulme_temp_out] [get_bd_nets output_temp_out] [get_bd_cells system_ila_0]
+delete_bd_objs [get_bd_intf_nets volume_controller_0_m_axis] [get_bd_nets digilent_jstk2_0_jstk_x] [get_bd_intf_nets balance_controller_0_m_axis] [get_bd_cells balance_controller_0]
+delete_bd_objs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 3922.113 ; gain = 0.000
+connect_bd_intf_net [get_bd_intf_pins volume_controller_0/m_axis] [get_bd_intf_pins mute_0/s_axis]
+update_compile_order -fileset sources_1
+save_bd_design
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 17:01:43 2023] Launched synth_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 17:01:43 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 3927.258 ; gain = 5.145
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'counter_out'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'output_temp_out'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'voulme_temp_out'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_volume_controller_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_volume_controller_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 17:08:22 2023] Launched design_1_volume_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 17:08:22 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:03 ; elapsed = 00:00:13 . Memory (MB): peak = 3930.129 ; gain = 0.000
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3954.359 ; gain = 13.742
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {180.000} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {49.500} CONFIG.MMCM_CLKOUT0_DIVIDE_F {5.500} CONFIG.MMCM_CLKOUT1_DIVIDE {44} CONFIG.CLKOUT1_JITTER {224.262} CONFIG.CLKOUT1_PHASE_ERROR {296.868} CONFIG.CLKOUT2_JITTER {316.348} CONFIG.CLKOUT2_PHASE_ERROR {296.868}] [get_bd_cells clk_wiz]
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_clkfreq {180000000}] [get_bd_cells axi4stream_spi_master_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKFREQ {180000000}] [get_bd_cells digilent_jstk2_0]
+endgroup
+startgroup
+endgroup
+save_bd_design
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_digilent_jstk2_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi4stream_spi_master_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block digilent_jstk2_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_axi4stream_spi_master_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_clk_wiz_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_proc_sys_reset_0_1
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_axi4stream_spi_master_0_0, cache-ID = 5b89b75d4f3da700; cache size = 247.837 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_clk_wiz_0, cache-ID = bd176a26cc422103; cache size = 247.837 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_proc_sys_reset_0_0, cache-ID = 351915b7d9c9efc8; cache size = 247.837 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_proc_sys_reset_0_1, cache-ID = 20f7cb65dc51158a; cache size = 247.837 MB.
+[Sun May 21 17:38:56 2023] Launched design_1_digilent_jstk2_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_digilent_jstk2_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_digilent_jstk2_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 17:38:56 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:04 ; elapsed = 00:00:31 . Memory (MB): peak = 3987.219 ; gain = 1.711
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}}]
+refresh_design
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 4037.961 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 109 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+refresh_design: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 4037.961 ; gain = 11.488
+INFO: [Common 17-344] 'refresh_design' was cancelled
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 4037.961 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 109 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.491 . Memory (MB): peak = 4037.961 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.492 . Memory (MB): peak = 4037.961 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4037.961 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+
+open_run impl_1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.301 . Memory (MB): peak = 4037.961 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.301 . Memory (MB): peak = 4037.961 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4037.961 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 4037.961 ; gain = 0.000
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference balance_controller balance_controller_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+delete_bd_objs [get_bd_intf_nets volume_controller_0_m_axis]
+connect_bd_intf_net [get_bd_intf_pins volume_controller_0/m_axis] [get_bd_intf_pins balance_controller_0/s_axis]
+connect_bd_intf_net [get_bd_intf_pins balance_controller_0/m_axis] [get_bd_intf_pins mute_0/s_axis]
+connect_bd_net [get_bd_pins balance_controller_0/aclk] [get_bd_pins clk_wiz/clk_out1]
+connect_bd_net [get_bd_pins balance_controller_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins balance_controller_0/balance] [get_bd_pins digilent_jstk2_0/jstk_x]
+regenerate_bd_layout
+validate_bd_design
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+save_bd_design
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 17:48:13 2023] Launched design_1_balance_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 17:48:14 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:22 . Memory (MB): peak = 4037.961 ; gain = 0.000
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_3
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}}]
+refresh_design
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 4065.020 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 149 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Common 17-344] 'refresh_design' was cancelled
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 4065.020 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 149 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.398 . Memory (MB): peak = 4065.020 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.398 . Memory (MB): peak = 4065.020 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4065.020 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+
+open_run impl_1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.359 . Memory (MB): peak = 4065.020 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.361 . Memory (MB): peak = 4065.020 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4067.363 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 4067.363 ; gain = 2.344
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference design_1_balance_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_balance_controller_0_0 from balance_controller_v1_0 1.0 to balance_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 4148.582 ; gain = 0.086
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 18:10:30 2023] Launched design_1_volume_controller_0_0_synth_1, design_1_balance_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 18:10:30 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:04 ; elapsed = 00:00:32 . Memory (MB): peak = 4148.582 ; gain = 0.000
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:19 . Memory (MB): peak = 4149.547 ; gain = 0.965
+update_module_reference design_1_balance_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_balance_controller_0_0 from balance_controller_v1_0 1.0 to balance_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:13 . Memory (MB): peak = 4149.547 ; gain = 0.000
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 18:14:11 2023] Launched design_1_volume_controller_0_0_synth_1, design_1_balance_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 18:14:11 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 4149.547 ; gain = 0.000
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 4171.449 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 87 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.374 . Memory (MB): peak = 4171.449 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.375 . Memory (MB): peak = 4171.449 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4171.449 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+
+open_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 4273.684 ; gain = 102.234
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+endgroup
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+startgroup
+unplace_cell  [get_cells [list  {design_1_i/dual_moving_average_0/U0/counter_reg[5]} {design_1_i/dual_moving_average_0/U0/FSM_sequential_state[2]_i_8}] -filter {((is_primitive==true && primitive_level!="INTERNAL")  && (loc!=""))}]
+place_cell {design_1_i/dual_moving_average_0/U0/counter_reg[1]} SLICE_X21Y112/AFF
+place_cell {design_1_i/dual_moving_average_0/U0/counter_reg[5]} SLICE_X21Y113/AFF
+place_cell {design_1_i/dual_moving_average_0/U0/FSM_sequential_state[2]_i_8} SLICE_X20Y113/A6LUT
+endgroup
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+startgroup
+place_cell {design_1_i/dual_moving_average_0/U0/FSM_sequential_state[2]_i_8} SLICE_X20Y112/C6LUT
+endgroup
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.CLKFREQ {100000000}] [get_bd_cells digilent_jstk2_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_clkfreq {100000000}] [get_bd_cells axi4stream_spi_master_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100.000} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {7.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {7.000} CONFIG.MMCM_CLKOUT1_DIVIDE {31} CONFIG.CLKOUT1_JITTER {149.337} CONFIG.CLKOUT1_PHASE_ERROR {122.577} CONFIG.CLKOUT2_JITTER {201.826} CONFIG.CLKOUT2_PHASE_ERROR {122.577}] [get_bd_cells clk_wiz]
+endgroup
+startgroup
+endgroup
+set_property target_constrs_file {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/constrs_1/imports/hdl/pins.xdc} [current_fileset -constrset]
+save_constraints -force
+save_bd_design
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_digilent_jstk2_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi4stream_spi_master_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block digilent_jstk2_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_axi4stream_spi_master_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_clk_wiz_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_proc_sys_reset_0_1
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_axi4stream_spi_master_0_0, cache-ID = 0dfaa32226c9574f; cache size = 247.837 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_clk_wiz_0, cache-ID = a92245ff90a498ee; cache size = 247.837 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_proc_sys_reset_0_0, cache-ID = e850d91ee2a3f148; cache size = 247.837 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_proc_sys_reset_0_1, cache-ID = ceccb102be847922; cache size = 247.837 MB.
+[Sun May 21 18:30:27 2023] Launched design_1_digilent_jstk2_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_digilent_jstk2_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_digilent_jstk2_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 18:30:27 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 4507.676 ; gain = 4.223
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_digilent_jstk2_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_digilent_jstk2_0_0 from digilent_jstk2_v1_0 1.0 to digilent_jstk2_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference design_1_led_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'aclk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_led_controller_0_0 from led_controller_v1_0 1.0 to led_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 4520.668 ; gain = 0.000
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 4520.668 ; gain = 0.000
+update_module_reference design_1_balance_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_balance_controller_0_0 from balance_controller_v1_0 1.0 to balance_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 4520.668 ; gain = 0.000
+startgroup
+set_property -dict [list CONFIG.N_VALUE {2}] [get_bd_cells balance_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {2}] [get_bd_cells volume_controller_0]
+endgroup
+save_bd_design
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block digilent_jstk2_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block led_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 18:54:54 2023] Launched design_1_digilent_jstk2_0_0_synth_1, design_1_led_controller_0_0_synth_1, design_1_volume_controller_0_0_synth_1, design_1_balance_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_digilent_jstk2_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_digilent_jstk2_0_0_synth_1/runme.log
+design_1_led_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_led_controller_0_0_synth_1/runme.log
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 18:54:55 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:26 . Memory (MB): peak = 4520.668 ; gain = 0.000
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells balance_controller_0]
+endgroup
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:15 . Memory (MB): peak = 4542.473 ; gain = 13.477
+update_module_reference design_1_balance_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_balance_controller_0_0 from balance_controller_v1_0 1.0 to balance_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 4542.473 ; gain = 0.000
+update_module_reference design_1_mute_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_0_0 from mute_v1_0 1.0 to mute_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 4542.547 ; gain = 0.074
+update_module_reference design_1_dual_moving_average_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_dual_moving_average_0_0 from dual_moving_average_v1_0 1.0 to dual_moving_average_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 4542.609 ; gain = 0.062
+update_module_reference design_1_led_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'aclk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_led_controller_0_0 from led_controller_v1_0 1.0 to led_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 4542.609 ; gain = 0.000
+update_module_reference design_1_dual_moving_average_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_dual_moving_average_0_0 from dual_moving_average_v1_0 1.0 to dual_moving_average_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference design_1_balance_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_balance_controller_0_0 from balance_controller_v1_0 1.0 to balance_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 4542.617 ; gain = 0.000
+update_module_reference design_1_mute_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_0_0 from mute_v1_0 1.0 to mute_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block led_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block dual_moving_average_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 19:08:45 2023] Launched design_1_dual_moving_average_0_0_synth_1, design_1_led_controller_0_0_synth_1, design_1_volume_controller_0_0_synth_1, design_1_mute_0_0_synth_1, design_1_balance_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_dual_moving_average_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_dual_moving_average_0_0_synth_1/runme.log
+design_1_led_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_led_controller_0_0_synth_1/runme.log
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+design_1_mute_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_mute_0_0_synth_1/runme.log
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 19:08:46 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 4542.625 ; gain = 0.000
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {7}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {7}] [get_bd_cells balance_controller_0]
+endgroup
+update_module_reference design_1_dual_moving_average_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_dual_moving_average_0_0 from dual_moving_average_v1_0 1.0 to dual_moving_average_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:03 ; elapsed = 00:00:13 . Memory (MB): peak = 4582.195 ; gain = 1.977
+update_module_reference design_1_balance_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_balance_controller_0_0 from balance_controller_v1_0 1.0 to balance_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 4582.230 ; gain = 0.035
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 4596.910 ; gain = 14.680
+update_module_reference design_1_mute_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_mute_0_0 from mute_v1_0 1.0 to mute_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 4597.207 ; gain = 0.297
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block dual_moving_average_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 19:18:46 2023] Launched design_1_dual_moving_average_0_0_synth_1, design_1_volume_controller_0_0_synth_1, design_1_mute_0_0_synth_1, design_1_balance_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_dual_moving_average_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_dual_moving_average_0_0_synth_1/runme.log
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+design_1_mute_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_mute_0_0_synth_1/runme.log
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 19:18:46 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 4597.207 ; gain = 0.000
+update_module_reference design_1_volume_controller_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+Upgrading 'C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_volume_controller_0_0 from volume_controller_v1_0 1.0 to volume_controller_v1_0 1.0
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells balance_controller_0]
+endgroup
+save_bd_design
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+reset_run synth_1
+reset_run design_1_balance_controller_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+WARNING: [BD 41-1781] Updates have been made to one or more nets/interface connections marked for debug.
+Debug nets, which are already connected to any ILA IP core in the block-design, will be automatically available for debug in Hardware Manager.
+For unconnected Debug nets, please open synthesized design and use 'Set Up Debug' wizard to insert, modify or delete Debug Cores. 
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\OneDrive - Politecnico di Milano\.DESD\a\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 19:28:01 2023] Launched design_1_balance_controller_0_0_synth_1, design_1_volume_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 19:28:01 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:25 . Memory (MB): peak = 4612.195 ; gain = 0.000
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/Laboratories/Lab3/lab3_home_assignment_solution.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/Laboratories/Lab3/lab3_home_assignment_solution.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_project
+close_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 4639.629 ; gain = 19.414
+open_project C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/emach/Desktop/PrjAr/_X_' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+open_bd_design {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_1
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_0
+Adding component instance block -- xilinx.com:module_ref:debouncer:1.0 - debouncer_1
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_0
+Adding component instance block -- xilinx.com:module_ref:edge_detector:1.0 - edge_detector_1
+Adding component instance block -- DigiLAB:ip:axi4stream_spi_master:1.0 - axi4stream_spi_master_0
+Adding component instance block -- xilinx.com:module_ref:digilent_jstk2:1.0 - digilent_jstk2_0
+Adding component instance block -- DigiLAB:ip:axis_dual_i2s:1.0 - axis_dual_i2s_0
+Adding component instance block -- xilinx.com:module_ref:dual_moving_average:1.0 - dual_moving_average_0
+Adding component instance block -- xilinx.com:module_ref:led_controller:1.0 - led_controller_0
+Adding component instance block -- xilinx.com:module_ref:mute:1.0 - mute_0
+Adding component instance block -- xilinx.com:module_ref:volume_controller:1.0 - volume_controller_0
+Adding component instance block -- xilinx.com:module_ref:balance_controller:1.0 - balance_controller_0
+Successfully read diagram <design_1> from block design file <C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 4639.629 ; gain = 0.000
+update_compile_order -fileset sources_1
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells balance_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.FILTER_DEPTH {100}] [get_bd_cells dual_moving_average_0]
+endgroup
+validate_bd_design
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+startgroup
+endgroup
+save_bd_design
+Wrote  : <C:\Users\mario\Desktop\Group_11A_assignement3.xpr\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_dual_moving_average_0_0_synth_1
+reset_run design_1_balance_controller_0_0_synth_1
+reset_run design_1_volume_controller_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block dual_moving_average_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May 21 20:10:42 2023] Launched design_1_dual_moving_average_0_0_synth_1, design_1_balance_controller_0_0_synth_1, design_1_volume_controller_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_dual_moving_average_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_dual_moving_average_0_0_synth_1/runme.log
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 20:10:42 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:16 . Memory (MB): peak = 4639.629 ; gain = 0.000
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.2
+  **** Build date : Nov 18 2020 at 10:01:48
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+Warning: Cannot create '3000:arm' GDB server: Tentativo di accesso al socket con modalità non consentite dalle rispettive autorizzazioni di accesso
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2020.2
+  ****** Build date   : Nov 03 2020-22:02:56
+    **** Build number : 2020.2.1604437376
+      ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:13 . Memory (MB): peak = 4639.629 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183ACADA8A
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100.000} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {7.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {7.000} CONFIG.MMCM_CLKOUT1_DIVIDE {31} CONFIG.CLKOUT1_JITTER {149.337} CONFIG.CLKOUT1_PHASE_ERROR {122.577} CONFIG.CLKOUT2_JITTER {201.826} CONFIG.CLKOUT2_PHASE_ERROR {122.577}] [get_bd_cells clk_wiz]
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKFREQ {100000000}] [get_bd_cells digilent_jstk2_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_clkfreq {100000000}] [get_bd_cells axi4stream_spi_master_0]
+endgroup
+startgroup
+endgroup
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells balance_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.FILTER_DEPTH {32}] [get_bd_cells dual_moving_average_0]
+endgroup
+save_bd_design
+Wrote  : <C:\Users\mario\Desktop\Group_11A_assignement3.xpr\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_digilent_jstk2_0_0_synth_1
+reset_run design_1_dual_moving_average_0_0_synth_1
+reset_run design_1_balance_controller_0_0_synth_1
+reset_run design_1_volume_controller_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+ERROR: [BD 41-1273] Error running propagate TCL procedure: 
+    ::xilinx.com_ip_clk_wiz_6.0::propagate Line 2
+ERROR: [BD 41-1273] Error running propagate TCL procedure: 
+    ::xilinx.com_ip_proc_sys_reset_5.0::propagate Line 3
+ERROR: [BD 41-1273] Error running propagate TCL procedure: 
+    ::xilinx.com_ip_proc_sys_reset_5.0::propagate Line 3
+ERROR: [BD 41-1273] Error running post_propagate TCL procedure: 
+    ::xilinx.com_ip_proc_sys_reset_5.0::post_propagate Line 3
+ERROR: [BD 41-1273] Error running post_propagate TCL procedure: 
+    ::xilinx.com_ip_proc_sys_reset_5.0::post_propagate Line 3
+WARNING: [BD 41-927] Following properties on pin /axi4stream_spi_master_0/aclk have been updated from connected ip, but BD cell '/axi4stream_spi_master_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	PHASE = 0.0 
+Please resolve any mismatches by directly setting properties on BD cell </axi4stream_spi_master_0> to completely resolve these warnings.
+Wrote  : <C:\Users\mario\Desktop\Group_11A_assignement3.xpr\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [BD 41-1171] User-interrupt detected : Generation halted successfully for IP Integrator design C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd
+INFO: [Common 17-344] 'launch_runs' was cancelled
+reset_run design_1_debouncer_0_0_synth_1
+reset_run design_1_edge_detector_0_0_synth_1
+reset_run design_1_debouncer_1_0_synth_1
+reset_run design_1_edge_detector_1_0_synth_1
+reset_run design_1_axis_dual_i2s_0_2_synth_1
+reset_run design_1_led_controller_0_0_synth_1
+reset_run design_1_mute_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <C:\Users\mario\Desktop\Group_11A_assignement3.xpr\LAB3_Loopback\LAB3_Loopback.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block debouncer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block debouncer_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block edge_detector_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block edge_detector_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi4stream_spi_master_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block digilent_jstk2_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_dual_i2s_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block dual_moving_average_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block led_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mute_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block volume_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block balance_controller_0 .
+Exporting to file c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_axi4stream_spi_master_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_axis_dual_i2s_0_2
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_clk_wiz_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_proc_sys_reset_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_proc_sys_reset_0_1
+[Sun May 21 20:22:40 2023] Launched design_1_debouncer_0_0_synth_1, design_1_edge_detector_0_0_synth_1, design_1_debouncer_1_0_synth_1, design_1_edge_detector_1_0_synth_1, design_1_digilent_jstk2_0_0_synth_1, design_1_axis_dual_i2s_0_2_synth_1, design_1_led_controller_0_0_synth_1, design_1_mute_0_0_synth_1, design_1_dual_moving_average_0_0_synth_1, design_1_balance_controller_0_0_synth_1, design_1_volume_controller_0_0_synth_1, design_1_proc_sys_reset_0_1_synth_1, design_1_axi4stream_spi_master_0_0_synth_1, design_1_proc_sys_reset_0_0_synth_1, design_1_clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_debouncer_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_debouncer_0_0_synth_1/runme.log
+design_1_edge_detector_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_edge_detector_0_0_synth_1/runme.log
+design_1_debouncer_1_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_debouncer_1_0_synth_1/runme.log
+design_1_edge_detector_1_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_edge_detector_1_0_synth_1/runme.log
+design_1_digilent_jstk2_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_digilent_jstk2_0_0_synth_1/runme.log
+design_1_axis_dual_i2s_0_2_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_axis_dual_i2s_0_2_synth_1/runme.log
+design_1_led_controller_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_led_controller_0_0_synth_1/runme.log
+design_1_mute_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_mute_0_0_synth_1/runme.log
+design_1_dual_moving_average_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_dual_moving_average_0_0_synth_1/runme.log
+design_1_balance_controller_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_balance_controller_0_0_synth_1/runme.log
+design_1_volume_controller_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_volume_controller_0_0_synth_1/runme.log
+design_1_proc_sys_reset_0_1_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_proc_sys_reset_0_1_synth_1/runme.log
+design_1_axi4stream_spi_master_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_axi4stream_spi_master_0_0_synth_1/runme.log
+design_1_proc_sys_reset_0_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_proc_sys_reset_0_0_synth_1/runme.log
+design_1_clk_wiz_0_synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/design_1_clk_wiz_0_synth_1/runme.log
+synth_1: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/synth_1/runme.log
+[Sun May 21 20:22:41 2023] Launched impl_1...
+Run output will be captured here: C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:00:23 . Memory (MB): peak = 4639.629 ; gain = 0.000
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.077 . Memory (MB): peak = 4639.629 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 87 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.686 . Memory (MB): peak = 4639.629 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.690 . Memory (MB): peak = 4639.629 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 4639.629 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+
+open_run: Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 4644.387 ; gain = 4.758
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+archive_project C:/Users/mario/Documents/Group_11A_assignement3.xpr.zip -temp_dir C:/Users/mario/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8064-Pc -force -include_local_ip_cache -include_config_settings
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'C:/Users/mario/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8064-Pc' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+WARNING: [IP_Flow 19-3571] IP 'design_1_debouncer_1_0' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'design_1_edge_detector_1_0' is restricted:
+* Module reference is stale and needs refreshing.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'aclk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_debouncer_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_edge_detector_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_debouncer_1_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_edge_detector_1_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_digilent_jstk2_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_axis_dual_i2s_0_2_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_led_controller_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_mute_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_dual_moving_average_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_balance_controller_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_volume_controller_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_proc_sys_reset_0_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_axi4stream_spi_master_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_proc_sys_reset_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_clk_wiz_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'design_1_debouncer_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_edge_detector_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_debouncer_1_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_edge_detector_1_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_digilent_jstk2_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_axis_dual_i2s_0_2_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_led_controller_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_mute_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_dual_moving_average_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_balance_controller_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_volume_controller_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_proc_sys_reset_0_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_axi4stream_spi_master_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_proc_sys_reset_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_clk_wiz_0_impl_1'...
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_axi4stream_spi_master_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_axi4stream_spi_master_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_axis_dual_i2s_0_2'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_axis_dual_i2s_0_2'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_balance_controller_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_balance_controller_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_clk_wiz_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_clk_wiz_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_debouncer_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_debouncer_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_debouncer_1_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_debouncer_1_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_digilent_jstk2_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_digilent_jstk2_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_dual_moving_average_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_dual_moving_average_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_edge_detector_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_edge_detector_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_edge_detector_1_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_edge_detector_1_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_led_controller_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_led_controller_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_mute_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_mute_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_proc_sys_reset_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_proc_sys_reset_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_proc_sys_reset_0_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_proc_sys_reset_0_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_volume_controller_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_volume_controller_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'

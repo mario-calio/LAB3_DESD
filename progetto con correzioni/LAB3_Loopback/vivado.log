@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jun 23 14:32:31 2023
+# Process ID: 6944
+# Current directory: C:/Users/emach/Desktop/LAB3_Loopback
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9008 C:\Users\emach\Desktop\LAB3_Loopback\LAB3_Loopback.xpr
+# Log file: C:/Users/emach/Desktop/LAB3_Loopback/vivado.log
+# Journal file: C:/Users/emach/Desktop/LAB3_Loopback\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/emach/Desktop/LAB3_Loopback/LAB3_Loopback.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/mario/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8064-Pc/PrjAr/_X_' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/emach/Desktop/LAB3_Loopback/LAB3_Loopback.ipdefs/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1017.973 ; gain = 0.000
+update_compile_order -fileset sources_1

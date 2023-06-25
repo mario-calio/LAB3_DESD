@@ -1,0 +1,117 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sun May 21 20:33:46 2023
+| Host         : Pc running 64-bit major release  (build 9200)
+| Command      : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 14
++-----------+----------+-----------------------------------------------------+------------+
+| Rule      | Severity | Description                                         | Violations |
++-----------+----------+-----------------------------------------------------+------------+
+| BUFC-1    | Warning  | Input Buffer Connections                            | 3          |
+| CFGBVS-1  | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
+| PDRC-153  | Warning  | Gated clock check                                   | 2          |
+| REQP-1839 | Warning  | RAMB36 async control check                          | 8          |
++-----------+----------+-----------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+BUFC-1#1 Warning
+Input Buffer Connections  
+Input buffer SPI_M_0_io0_iobuf/IBUF (in SPI_M_0_io0_iobuf macro) has no loads. It is recommended to have an input buffer drive an internal load.
+Related violations: <none>
+
+BUFC-1#2 Warning
+Input Buffer Connections  
+Input buffer SPI_M_0_sck_iobuf/IBUF (in SPI_M_0_sck_iobuf macro) has no loads. It is recommended to have an input buffer drive an internal load.
+Related violations: <none>
+
+BUFC-1#3 Warning
+Input Buffer Connections  
+Input buffer SPI_M_0_ss_iobuf/IBUF (in SPI_M_0_ss_iobuf macro) has no loads. It is recommended to have an input buffer drive an internal load.
+Related violations: <none>
+
+CFGBVS-1#1 Warning
+Missing CFGBVS and CONFIG_VOLTAGE Design Properties  
+Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net design_1_i/debouncer_0/U0/debounced_int_reg_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/debouncer_0/U0/debounced_int_reg_LDC_i_1/O, cell design_1_i/debouncer_0/U0/debounced_int_reg_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net design_1_i/debouncer_1/U0/debounced_int_reg_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/debouncer_1/U0/debounced_int_reg_LDC_i_1/O, cell design_1_i/debouncer_1/U0/debounced_int_reg_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+REQP-1839#1 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ENARDEN (net: design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/ena) which is driven by a register (design_1_i/mute_0/U0/m_axis_tvalid_int_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#2 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/WEA[0] (net: design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/ena) which is driven by a register (design_1_i/mute_0/U0/m_axis_tvalid_int_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#3 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/WEA[1] (net: design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/ena) which is driven by a register (design_1_i/mute_0/U0/m_axis_tvalid_int_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#4 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/WEA[2] (net: design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/ena) which is driven by a register (design_1_i/mute_0/U0/m_axis_tvalid_int_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#5 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/WEA[3] (net: design_1_i/axis_dual_i2s_0/inst/rx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/ena) which is driven by a register (design_1_i/mute_0/U0/m_axis_tvalid_int_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#6 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ENBWREN (net: design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/enb) which is driven by a register (design_1_i/dual_moving_average_0/U0/FSM_sequential_state_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#7 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ENBWREN (net: design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/enb) which is driven by a register (design_1_i/dual_moving_average_0/U0/FSM_sequential_state_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#8 Warning
+RAMB36 async control check  
+The RAMB36E1 design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg has an input control pin design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg/ENBWREN (net: design_1_i/axis_dual_i2s_0/inst/tx_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/enb) which is driven by a register (design_1_i/dual_moving_average_0/U0/FSM_sequential_state_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+

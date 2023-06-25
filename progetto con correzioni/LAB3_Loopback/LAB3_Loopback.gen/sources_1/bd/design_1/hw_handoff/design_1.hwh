@@ -1,0 +1,1924 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun May 21 20:22:22 2023" VIVADOVERSION="2020.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:basys3:part0:1.1" DEVICE="7a35t" NAME="design_1" PACKAGE="cpg236" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sys_clock" SIGIS="clk" SIGNAME="External_Ports_sys_clock">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clk_wiz" PORT="reset"/>
+        <CONNECTION INSTANCE="proc_sys_reset_0" PORT="ext_reset_in"/>
+        <CONNECTION INSTANCE="proc_sys_reset_1" PORT="ext_reset_in"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_lrck_0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_lrck">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="tx_lrck"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rx_sdin_0" SIGIS="undef" SIGNAME="External_Ports_rx_sdin_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="rx_sdin"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_mclk_0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_mclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="tx_mclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rx_lrck_0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_rx_lrck">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="rx_lrck"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rx_mclk_0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_rx_mclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="rx_mclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_sdout_0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_sdout">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="tx_sdout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_sclk_0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_sclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="tx_sclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rx_sclk_0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_rx_sclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="rx_sclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_sck_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_sclk_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="sclk_t"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_io1_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_miso_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="miso_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_ss_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_cs_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="cs_t"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_io0_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_mosi_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="mosi_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SPI_M_0_sck_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_sclk_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="sclk_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_ss_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_cs_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="cs_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_io0_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_mosi_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="mosi_t"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_io1_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_miso_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="miso_t"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SPI_M_0_sck_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_sclk_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="sclk_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SPI_M_0_ss_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_cs_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="cs_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SPI_M_0_io1_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_miso_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="miso_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SPI_M_0_io0_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_mosi_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="mosi_i"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES>
+    <BUSINTERFACE BUSNAME="axi4stream_spi_master_0_SPI_M" NAME="SPI_M_0" TYPE="INITIATOR">
+      <PORTMAPS>
+        <PORTMAP LOGICAL="SCK_T" PHYSICAL="SPI_M_0_sck_t"/>
+        <PORTMAP LOGICAL="IO1_O" PHYSICAL="SPI_M_0_io1_o"/>
+        <PORTMAP LOGICAL="SS_T" PHYSICAL="SPI_M_0_ss_t"/>
+        <PORTMAP LOGICAL="IO0_O" PHYSICAL="SPI_M_0_io0_o"/>
+        <PORTMAP LOGICAL="SCK_I" PHYSICAL="SPI_M_0_sck_i"/>
+        <PORTMAP LOGICAL="SS_O" PHYSICAL="SPI_M_0_ss_o"/>
+        <PORTMAP LOGICAL="IO0_T" PHYSICAL="SPI_M_0_io0_t"/>
+        <PORTMAP LOGICAL="IO1_T" PHYSICAL="SPI_M_0_io1_t"/>
+        <PORTMAP LOGICAL="SCK_O" PHYSICAL="SPI_M_0_sck_o"/>
+        <PORTMAP LOGICAL="SS_I" PHYSICAL="SPI_M_0_ss_i"/>
+        <PORTMAP LOGICAL="IO1_I" PHYSICAL="SPI_M_0_io1_i"/>
+        <PORTMAP LOGICAL="IO0_I" PHYSICAL="SPI_M_0_io0_i"/>
+      </PORTMAPS>
+    </BUSINTERFACE>
+  </EXTERNALINTERFACES>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/axi4stream_spi_master_0" HWVERSION="1.0" INSTANCE="axi4stream_spi_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi4stream_spi_master" VLNV="DigiLAB:ip:axi4stream_spi_master:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="c_clkfreq" VALUE="100000000"/>
+        <PARAMETER NAME="c_sclkfreq" VALUE="5000"/>
+        <PARAMETER NAME="c_cpol" VALUE="0"/>
+        <PARAMETER NAME="c_cpha" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_axi4stream_spi_master_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="cs_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_cs_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_ss_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="cs_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_cs_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_ss_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="cs_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_cs_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_ss_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sclk_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_sclk_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_sck_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sclk_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_sclk_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_sck_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sclk_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_sclk_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_sck_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mosi_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_mosi_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_io0_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mosi_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_mosi_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_io0_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mosi_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_mosi_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_io0_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="miso_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_miso_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_io1_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="miso_o" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_miso_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_io1_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="miso_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_miso_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="SPI_M_0_io1_t"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="axi4stream_spi_master_0_SPI_M" NAME="SPI_M" TYPE="INITIATOR" VLNV="xilinx.com:interface:spi:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="SCK_T" PHYSICAL="sclk_t"/>
+            <PORTMAP LOGICAL="IO1_O" PHYSICAL="miso_o"/>
+            <PORTMAP LOGICAL="SS_T" PHYSICAL="cs_t"/>
+            <PORTMAP LOGICAL="IO0_O" PHYSICAL="mosi_o"/>
+            <PORTMAP LOGICAL="SCK_I" PHYSICAL="sclk_i"/>
+            <PORTMAP LOGICAL="SS_O" PHYSICAL="cs_o"/>
+            <PORTMAP LOGICAL="IO0_T" PHYSICAL="mosi_t"/>
+            <PORTMAP LOGICAL="IO1_T" PHYSICAL="miso_t"/>
+            <PORTMAP LOGICAL="SCK_O" PHYSICAL="sclk_o"/>
+            <PORTMAP LOGICAL="SS_I" PHYSICAL="cs_i"/>
+            <PORTMAP LOGICAL="IO1_I" PHYSICAL="miso_i"/>
+            <PORTMAP LOGICAL="IO0_I" PHYSICAL="mosi_i"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="digilent_jstk2_0_m_axis" NAME="S_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi4stream_spi_master_0_M_AXIS" NAME="M_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="3" FULLNAME="/axis_dual_i2s_0" HWVERSION="1.0" INSTANCE="axis_dual_i2s_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axis_dual_i2s" VLNV="DigiLAB:ip:axis_dual_i2s:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_axis_dual_i2s_0_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="22580645" DIR="I" NAME="i2s_clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i2s_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_1_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_1" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tlast" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="m_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tlast" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="s_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_mclk" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_mclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_mclk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_lrck" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_lrck">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_lrck_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_sclk" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_sclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_sclk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_sdout" SIGIS="undef" SIGNAME="axis_dual_i2s_0_tx_sdout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_sdout_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rx_mclk" SIGIS="undef" SIGNAME="axis_dual_i2s_0_rx_mclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_mclk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rx_lrck" SIGIS="undef" SIGNAME="axis_dual_i2s_0_rx_lrck">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_lrck_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rx_sclk" SIGIS="undef" SIGNAME="axis_dual_i2s_0_rx_sclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_sclk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_sdin" SIGIS="undef" SIGNAME="External_Ports_rx_sdin_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_sdin_0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="axis_dual_i2s_0_m_axis" NAME="m_axis" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="m_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="mute_0_m_axis" NAME="s_axis" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="s_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/balance_controller_0" HWVERSION="1.0" INSTANCE="balance_controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="balance_controller" VLNV="xilinx.com:module_ref:balance_controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="N_VALUE" VALUE="6"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_balance_controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tlast" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="s_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tlast" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="m_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="9" NAME="balance" RIGHT="0" SIGIS="undef" SIGNAME="digilent_jstk2_0_jstk_x">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="jstk_x"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="balance_controller_0_m_axis" NAME="m_axis" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="m_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="dual_moving_average_0_m_axis" NAME="s_axis" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="s_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/clk_wiz" HWVERSION="6.0" INSTANCE="clk_wiz" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="clk_wiz" VLNV="xilinx.com:ip:clk_wiz:6.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=clk_wiz;v=v6_0;d=pg065-clk-wiz.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_CLKOUT2_USED" VALUE="1"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ0" VALUE="100.0"/>
+        <PARAMETER NAME="C_AUTO_PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ1" VALUE="100.0"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ2" VALUE="100.0"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ3" VALUE="100.0"/>
+        <PARAMETER NAME="C_ENABLE_CLOCK_MONITOR" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK0" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK1" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK2" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK3" VALUE="0"/>
+        <PARAMETER NAME="C_Enable_PLL0" VALUE="0"/>
+        <PARAMETER NAME="C_Enable_PLL1" VALUE="0"/>
+        <PARAMETER NAME="C_REF_CLK_FREQ" VALUE="100.0"/>
+        <PARAMETER NAME="C_PRECISION" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT3_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT4_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT5_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT6_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT7_USED" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT1_BAR" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT2_BAR" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT3_BAR" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT4_BAR" VALUE="0"/>
+        <PARAMETER NAME="c_component_name" VALUE="design_1_clk_wiz_0"/>
+        <PARAMETER NAME="C_PLATFORM" VALUE="UNKNOWN"/>
+        <PARAMETER NAME="C_USE_FREQ_SYNTH" VALUE="1"/>
+        <PARAMETER NAME="C_USE_PHASE_ALIGNMENT" VALUE="1"/>
+        <PARAMETER NAME="C_PRIM_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="C_SECONDARY_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="C_JITTER_SEL" VALUE="No_Jitter"/>
+        <PARAMETER NAME="C_USE_MIN_POWER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_MIN_O_JITTER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_MAX_I_JITTER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DYN_PHASE_SHIFT" VALUE="0"/>
+        <PARAMETER NAME="C_USE_INCLK_SWITCHOVER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DYN_RECONFIG" VALUE="0"/>
+        <PARAMETER NAME="C_USE_SPREAD_SPECTRUM" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FAST_SIMULATION" VALUE="0"/>
+        <PARAMETER NAME="C_PRIMTYPE_SEL" VALUE="AUTO"/>
+        <PARAMETER NAME="C_USE_CLK_VALID" VALUE="0"/>
+        <PARAMETER NAME="C_PRIM_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_PRIM_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_IN_FREQ_UNITS" VALUE="Units_MHz"/>
+        <PARAMETER NAME="C_SECONDARY_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_SECONDARY_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_FEEDBACK_SOURCE" VALUE="FDBK_AUTO"/>
+        <PARAMETER NAME="C_PRIM_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="C_PHASESHIFT_MODE" VALUE="WAVEFORM"/>
+        <PARAMETER NAME="C_SECONDARY_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="C_CLKFB_IN_SIGNALING" VALUE="SINGLE"/>
+        <PARAMETER NAME="C_USE_RESET" VALUE="1"/>
+        <PARAMETER NAME="C_RESET_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_LOCKED" VALUE="1"/>
+        <PARAMETER NAME="C_USE_INCLK_STOPPED" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKFB_STOPPED" VALUE="0"/>
+        <PARAMETER NAME="C_USE_POWER_DOWN" VALUE="0"/>
+        <PARAMETER NAME="C_USE_STATUS" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FREEZE" VALUE="0"/>
+        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="2"/>
+        <PARAMETER NAME="C_CLKOUT1_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT2_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT3_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT4_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT5_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT6_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT7_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_INCLK_SUM_ROW0" VALUE="Input Clock   Freq (MHz)    Input Jitter (UI)"/>
+        <PARAMETER NAME="C_INCLK_SUM_ROW1" VALUE="__primary_________100.000____________0.010"/>
+        <PARAMETER NAME="C_INCLK_SUM_ROW2" VALUE="no_secondary_input_clock"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk_out1__100.00000______0.000______50.0______149.337____122.577"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="clk_out2__22.58065______0.000______50.0______201.826____122.577"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="no_CLK_OUT3_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW6" VALUE="no_CLK_OUT6_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW7" VALUE="no_CLK_OUT7_output"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT2_REQUESTED_OUT_FREQ" VALUE="22.579"/>
+        <PARAMETER NAME="C_CLKOUT3_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT5_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT6_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT7_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT2_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT3_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT5_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT6_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT7_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT2_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT3_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT5_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT6_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT7_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT1_OUT_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT2_OUT_FREQ" VALUE="22.58065"/>
+        <PARAMETER NAME="C_CLKOUT3_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT4_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT5_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT6_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT7_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT6_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT7_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT1_DUTY_CYCLE" VALUE="50.0"/>
+        <PARAMETER NAME="C_CLKOUT2_DUTY_CYCLE" VALUE="50.0"/>
+        <PARAMETER NAME="C_CLKOUT3_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT4_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT5_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT6_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT7_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_USE_SAFE_CLOCK_STARTUP" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLOCK_SEQUENCING" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT1_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT2_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT3_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT5_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT6_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT7_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_NOTES" VALUE="None"/>
+        <PARAMETER NAME="C_MMCM_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="C_MMCM_CLKFBOUT_MULT_F" VALUE="7.000"/>
+        <PARAMETER NAME="C_MMCM_CLKIN1_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_MMCM_CLKIN2_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_CASCADE" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLOCK_HOLD" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_COMPENSATION" VALUE="ZHOLD"/>
+        <PARAMETER NAME="C_MMCM_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_REF_JITTER1" VALUE="0.010"/>
+        <PARAMETER NAME="C_MMCM_REF_JITTER2" VALUE="0.010"/>
+        <PARAMETER NAME="C_MMCM_STARTUP_WAIT" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_DIVIDE_F" VALUE="7.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_DIVIDE" VALUE="31"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKFBOUT_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_PLL_NOTES" VALUE="No notes"/>
+        <PARAMETER NAME="C_PLL_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="C_PLL_CLK_FEEDBACK" VALUE="CLKFBOUT"/>
+        <PARAMETER NAME="C_PLL_CLKFBOUT_MULT" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKIN_PERIOD" VALUE="1.000"/>
+        <PARAMETER NAME="C_PLL_COMPENSATION" VALUE="SYSTEM_SYNCHRONOUS"/>
+        <PARAMETER NAME="C_PLL_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_REF_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="C_PLL_CLKOUT0_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT1_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT2_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLOCK_MGR_TYPE" VALUE="NA"/>
+        <PARAMETER NAME="C_OVERRIDE_MMCM" VALUE="0"/>
+        <PARAMETER NAME="C_OVERRIDE_PLL" VALUE="0"/>
+        <PARAMETER NAME="C_PRIMARY_PORT" VALUE="clk_in1"/>
+        <PARAMETER NAME="C_SECONDARY_PORT" VALUE="clk_in2"/>
+        <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="clk_out1"/>
+        <PARAMETER NAME="C_CLK_OUT2_PORT" VALUE="clk_out2"/>
+        <PARAMETER NAME="C_CLK_OUT3_PORT" VALUE="clk_out3"/>
+        <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="clk_out4"/>
+        <PARAMETER NAME="C_CLK_OUT5_PORT" VALUE="clk_out5"/>
+        <PARAMETER NAME="C_CLK_OUT6_PORT" VALUE="clk_out6"/>
+        <PARAMETER NAME="C_CLK_OUT7_PORT" VALUE="clk_out7"/>
+        <PARAMETER NAME="C_RESET_PORT" VALUE="reset"/>
+        <PARAMETER NAME="C_LOCKED_PORT" VALUE="locked"/>
+        <PARAMETER NAME="C_CLKFB_IN_PORT" VALUE="clkfb_in"/>
+        <PARAMETER NAME="C_CLKFB_IN_P_PORT" VALUE="clkfb_in_p"/>
+        <PARAMETER NAME="C_CLKFB_IN_N_PORT" VALUE="clkfb_in_n"/>
+        <PARAMETER NAME="C_CLKFB_OUT_PORT" VALUE="clkfb_out"/>
+        <PARAMETER NAME="C_CLKFB_OUT_P_PORT" VALUE="clkfb_out_p"/>
+        <PARAMETER NAME="C_CLKFB_OUT_N_PORT" VALUE="clkfb_out_n"/>
+        <PARAMETER NAME="C_POWER_DOWN_PORT" VALUE="power_down"/>
+        <PARAMETER NAME="C_DADDR_PORT" VALUE="daddr"/>
+        <PARAMETER NAME="C_DCLK_PORT" VALUE="dclk"/>
+        <PARAMETER NAME="C_DRDY_PORT" VALUE="drdy"/>
+        <PARAMETER NAME="C_DWE_PORT" VALUE="dwe"/>
+        <PARAMETER NAME="C_DIN_PORT" VALUE="din"/>
+        <PARAMETER NAME="C_DOUT_PORT" VALUE="dout"/>
+        <PARAMETER NAME="C_DEN_PORT" VALUE="den"/>
+        <PARAMETER NAME="C_PSCLK_PORT" VALUE="psclk"/>
+        <PARAMETER NAME="C_PSEN_PORT" VALUE="psen"/>
+        <PARAMETER NAME="C_PSINCDEC_PORT" VALUE="psincdec"/>
+        <PARAMETER NAME="C_PSDONE_PORT" VALUE="psdone"/>
+        <PARAMETER NAME="C_CLK_VALID_PORT" VALUE="CLK_VALID"/>
+        <PARAMETER NAME="C_STATUS_PORT" VALUE="STATUS"/>
+        <PARAMETER NAME="C_CLK_IN_SEL_PORT" VALUE="clk_in_sel"/>
+        <PARAMETER NAME="C_INPUT_CLK_STOPPED_PORT" VALUE="input_clk_stopped"/>
+        <PARAMETER NAME="C_CLKFB_STOPPED_PORT" VALUE="clkfb_stopped"/>
+        <PARAMETER NAME="C_CLKIN1_JITTER_PS" VALUE="100.0"/>
+        <PARAMETER NAME="C_CLKIN2_JITTER_PS" VALUE="100.0"/>
+        <PARAMETER NAME="C_PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="C_SS_MODE" VALUE="CENTER_HIGH"/>
+        <PARAMETER NAME="C_SS_MOD_PERIOD" VALUE="4000"/>
+        <PARAMETER NAME="C_SS_MOD_TIME" VALUE="0.004"/>
+        <PARAMETER NAME="C_HAS_CDDC" VALUE="0"/>
+        <PARAMETER NAME="C_CDDCDONE_PORT" VALUE="cddcdone"/>
+        <PARAMETER NAME="C_CDDCREQ_PORT" VALUE="cddcreq"/>
+        <PARAMETER NAME="C_CLKOUTPHY_MODE" VALUE="VCO"/>
+        <PARAMETER NAME="C_ENABLE_CLKOUTPHY" VALUE="0"/>
+        <PARAMETER NAME="C_INTERFACE_SELECTION" VALUE="0"/>
+        <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="11"/>
+        <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_POWER_REG" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT0_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT0_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT1_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT1_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT2_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT2_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT3_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT3_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT4_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT4_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT5_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT5_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT6_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT6_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKFBOUT_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKFBOUT_2" VALUE="0000"/>
+        <PARAMETER NAME="C_DIVCLK" VALUE="0000"/>
+        <PARAMETER NAME="C_LOCK_1" VALUE="0000"/>
+        <PARAMETER NAME="C_LOCK_2" VALUE="0000"/>
+        <PARAMETER NAME="C_LOCK_3" VALUE="0000"/>
+        <PARAMETER NAME="C_FILTER_1" VALUE="0000"/>
+        <PARAMETER NAME="C_FILTER_2" VALUE="0000"/>
+        <PARAMETER NAME="C_DIVIDE1_AUTO" VALUE="1"/>
+        <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="4.428894105141946"/>
+        <PARAMETER NAME="C_DIVIDE3_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_DIVIDE5_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_DIVIDE6_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_DIVIDE7_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV1" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV2" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV3" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV4" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV1" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV2" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV3" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV4" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV5" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV6" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV7" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT1_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT2_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT3_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT5_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT6_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT7_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT0_ACTUAL_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT1_ACTUAL_FREQ" VALUE="22.58065"/>
+        <PARAMETER NAME="C_CLKOUT2_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT4_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT5_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT6_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_M_MAX" VALUE="64.000"/>
+        <PARAMETER NAME="C_M_MIN" VALUE="2.000"/>
+        <PARAMETER NAME="C_D_MAX" VALUE="80.000"/>
+        <PARAMETER NAME="C_D_MIN" VALUE="1.000"/>
+        <PARAMETER NAME="C_O_MAX" VALUE="128.000"/>
+        <PARAMETER NAME="C_O_MIN" VALUE="1.000"/>
+        <PARAMETER NAME="C_VCO_MIN" VALUE="600.000"/>
+        <PARAMETER NAME="C_VCO_MAX" VALUE="1200.000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_clk_wiz_0"/>
+        <PARAMETER NAME="USER_CLK_FREQ0" VALUE="100.0"/>
+        <PARAMETER NAME="USER_CLK_FREQ1" VALUE="100.0"/>
+        <PARAMETER NAME="USER_CLK_FREQ2" VALUE="100.0"/>
+        <PARAMETER NAME="USER_CLK_FREQ3" VALUE="100.0"/>
+        <PARAMETER NAME="ENABLE_CLOCK_MONITOR" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK0" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK1" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK2" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK3" VALUE="false"/>
+        <PARAMETER NAME="Enable_PLL0" VALUE="false"/>
+        <PARAMETER NAME="Enable_PLL1" VALUE="false"/>
+        <PARAMETER NAME="REF_CLK_FREQ" VALUE="100.0"/>
+        <PARAMETER NAME="PRECISION" VALUE="1"/>
+        <PARAMETER NAME="PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="PRIMTYPE_SEL" VALUE="mmcm_adv"/>
+        <PARAMETER NAME="CLOCK_MGR_TYPE" VALUE="auto"/>
+        <PARAMETER NAME="USE_FREQ_SYNTH" VALUE="true"/>
+        <PARAMETER NAME="USE_SPREAD_SPECTRUM" VALUE="false"/>
+        <PARAMETER NAME="USE_PHASE_ALIGNMENT" VALUE="true"/>
+        <PARAMETER NAME="USE_MIN_POWER" VALUE="false"/>
+        <PARAMETER NAME="USE_DYN_PHASE_SHIFT" VALUE="false"/>
+        <PARAMETER NAME="USE_DYN_RECONFIG" VALUE="false"/>
+        <PARAMETER NAME="JITTER_SEL" VALUE="No_Jitter"/>
+        <PARAMETER NAME="PRIM_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="PRIM_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="IN_FREQ_UNITS" VALUE="Units_MHz"/>
+        <PARAMETER NAME="PHASESHIFT_MODE" VALUE="WAVEFORM"/>
+        <PARAMETER NAME="IN_JITTER_UNITS" VALUE="Units_UI"/>
+        <PARAMETER NAME="RELATIVE_INCLK" VALUE="REL_PRIMARY"/>
+        <PARAMETER NAME="USE_INCLK_SWITCHOVER" VALUE="false"/>
+        <PARAMETER NAME="SECONDARY_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="SECONDARY_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="SECONDARY_PORT" VALUE="clk_in2"/>
+        <PARAMETER NAME="SECONDARY_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="JITTER_OPTIONS" VALUE="UI"/>
+        <PARAMETER NAME="CLKIN1_UI_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="CLKIN2_UI_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="PRIM_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="SECONDARY_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="CLKIN1_JITTER_PS" VALUE="100.0"/>
+        <PARAMETER NAME="CLKIN2_JITTER_PS" VALUE="100.0"/>
+        <PARAMETER NAME="CLKOUT1_USED" VALUE="true"/>
+        <PARAMETER NAME="CLKOUT2_USED" VALUE="true"/>
+        <PARAMETER NAME="CLKOUT3_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT4_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT5_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT6_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT7_USED" VALUE="false"/>
+        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="2"/>
+        <PARAMETER NAME="CLK_OUT1_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT2_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT3_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT4_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT5_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT6_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT7_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="PRIMARY_PORT" VALUE="clk_in1"/>
+        <PARAMETER NAME="CLK_OUT1_PORT" VALUE="clk_out1"/>
+        <PARAMETER NAME="CLK_OUT2_PORT" VALUE="clk_out2"/>
+        <PARAMETER NAME="CLK_OUT3_PORT" VALUE="clk_out3"/>
+        <PARAMETER NAME="CLK_OUT4_PORT" VALUE="clk_out4"/>
+        <PARAMETER NAME="CLK_OUT5_PORT" VALUE="clk_out5"/>
+        <PARAMETER NAME="CLK_OUT6_PORT" VALUE="clk_out6"/>
+        <PARAMETER NAME="CLK_OUT7_PORT" VALUE="clk_out7"/>
+        <PARAMETER NAME="DADDR_PORT" VALUE="daddr"/>
+        <PARAMETER NAME="DCLK_PORT" VALUE="dclk"/>
+        <PARAMETER NAME="DRDY_PORT" VALUE="drdy"/>
+        <PARAMETER NAME="DWE_PORT" VALUE="dwe"/>
+        <PARAMETER NAME="DIN_PORT" VALUE="din"/>
+        <PARAMETER NAME="DOUT_PORT" VALUE="dout"/>
+        <PARAMETER NAME="DEN_PORT" VALUE="den"/>
+        <PARAMETER NAME="PSCLK_PORT" VALUE="psclk"/>
+        <PARAMETER NAME="PSEN_PORT" VALUE="psen"/>
+        <PARAMETER NAME="PSINCDEC_PORT" VALUE="psincdec"/>
+        <PARAMETER NAME="PSDONE_PORT" VALUE="psdone"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT2_REQUESTED_OUT_FREQ" VALUE="22.579"/>
+        <PARAMETER NAME="CLKOUT2_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT2_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT3_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT3_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT3_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT5_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT5_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT5_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT6_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT6_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT6_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT7_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT7_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT7_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="USE_MAX_I_JITTER" VALUE="false"/>
+        <PARAMETER NAME="USE_MIN_O_JITTER" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT1_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT2_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT3_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT5_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT6_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT7_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="PRIM_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="CLKOUT1_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT2_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT3_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT4_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT5_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT6_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT7_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="FEEDBACK_SOURCE" VALUE="FDBK_AUTO"/>
+        <PARAMETER NAME="CLKFB_IN_SIGNALING" VALUE="SINGLE"/>
+        <PARAMETER NAME="CLKFB_IN_PORT" VALUE="clkfb_in"/>
+        <PARAMETER NAME="CLKFB_IN_P_PORT" VALUE="clkfb_in_p"/>
+        <PARAMETER NAME="CLKFB_IN_N_PORT" VALUE="clkfb_in_n"/>
+        <PARAMETER NAME="CLKFB_OUT_PORT" VALUE="clkfb_out"/>
+        <PARAMETER NAME="CLKFB_OUT_P_PORT" VALUE="clkfb_out_p"/>
+        <PARAMETER NAME="CLKFB_OUT_N_PORT" VALUE="clkfb_out_n"/>
+        <PARAMETER NAME="PLATFORM" VALUE="UNKNOWN"/>
+        <PARAMETER NAME="SUMMARY_STRINGS" VALUE="empty"/>
+        <PARAMETER NAME="USE_LOCKED" VALUE="true"/>
+        <PARAMETER NAME="CALC_DONE" VALUE="empty"/>
+        <PARAMETER NAME="USE_RESET" VALUE="true"/>
+        <PARAMETER NAME="USE_POWER_DOWN" VALUE="false"/>
+        <PARAMETER NAME="USE_STATUS" VALUE="false"/>
+        <PARAMETER NAME="USE_FREEZE" VALUE="false"/>
+        <PARAMETER NAME="USE_CLK_VALID" VALUE="false"/>
+        <PARAMETER NAME="USE_INCLK_STOPPED" VALUE="false"/>
+        <PARAMETER NAME="USE_CLKFB_STOPPED" VALUE="false"/>
+        <PARAMETER NAME="RESET_PORT" VALUE="reset"/>
+        <PARAMETER NAME="LOCKED_PORT" VALUE="locked"/>
+        <PARAMETER NAME="POWER_DOWN_PORT" VALUE="power_down"/>
+        <PARAMETER NAME="CLK_VALID_PORT" VALUE="CLK_VALID"/>
+        <PARAMETER NAME="STATUS_PORT" VALUE="STATUS"/>
+        <PARAMETER NAME="CLK_IN_SEL_PORT" VALUE="clk_in_sel"/>
+        <PARAMETER NAME="INPUT_CLK_STOPPED_PORT" VALUE="input_clk_stopped"/>
+        <PARAMETER NAME="CLKFB_STOPPED_PORT" VALUE="clkfb_stopped"/>
+        <PARAMETER NAME="SS_MODE" VALUE="CENTER_HIGH"/>
+        <PARAMETER NAME="SS_MOD_FREQ" VALUE="250"/>
+        <PARAMETER NAME="SS_MOD_TIME" VALUE="0.004"/>
+        <PARAMETER NAME="OVERRIDE_MMCM" VALUE="false"/>
+        <PARAMETER NAME="MMCM_NOTES" VALUE="None"/>
+        <PARAMETER NAME="MMCM_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="MMCM_CLKFBOUT_MULT_F" VALUE="7.000"/>
+        <PARAMETER NAME="MMCM_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKFBOUT_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKIN1_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="MMCM_CLKIN2_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_CASCADE" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLOCK_HOLD" VALUE="false"/>
+        <PARAMETER NAME="MMCM_COMPENSATION" VALUE="ZHOLD"/>
+        <PARAMETER NAME="MMCM_REF_JITTER1" VALUE="0.010"/>
+        <PARAMETER NAME="MMCM_REF_JITTER2" VALUE="0.010"/>
+        <PARAMETER NAME="MMCM_STARTUP_WAIT" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_DIVIDE_F" VALUE="7.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_DIVIDE" VALUE="31"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="OVERRIDE_PLL" VALUE="false"/>
+        <PARAMETER NAME="PLL_NOTES" VALUE="None"/>
+        <PARAMETER NAME="PLL_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="PLL_CLKFBOUT_MULT" VALUE="4"/>
+        <PARAMETER NAME="PLL_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLK_FEEDBACK" VALUE="CLKFBOUT"/>
+        <PARAMETER NAME="PLL_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKIN_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="PLL_COMPENSATION" VALUE="SYSTEM_SYNCHRONOUS"/>
+        <PARAMETER NAME="PLL_REF_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="PLL_CLKOUT0_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT1_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT2_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="RESET_TYPE" VALUE="ACTIVE_HIGH"/>
+        <PARAMETER NAME="USE_SAFE_CLOCK_STARTUP" VALUE="false"/>
+        <PARAMETER NAME="USE_CLOCK_SEQUENCING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT1_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT2_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT3_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT5_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT6_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT7_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="USE_BOARD_FLOW" VALUE="true"/>
+        <PARAMETER NAME="CLK_IN1_BOARD_INTERFACE" VALUE="sys_clock"/>
+        <PARAMETER NAME="CLK_IN2_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="DIFF_CLK_IN1_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="DIFF_CLK_IN2_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="AUTO_PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="reset"/>
+        <PARAMETER NAME="ENABLE_CDDC" VALUE="false"/>
+        <PARAMETER NAME="CDDCDONE_PORT" VALUE="cddcdone"/>
+        <PARAMETER NAME="CDDCREQ_PORT" VALUE="cddcreq"/>
+        <PARAMETER NAME="ENABLE_CLKOUTPHY" VALUE="false"/>
+        <PARAMETER NAME="CLKOUTPHY_REQUESTED_FREQ" VALUE="600.000"/>
+        <PARAMETER NAME="CLKOUT1_JITTER" VALUE="149.337"/>
+        <PARAMETER NAME="CLKOUT1_PHASE_ERROR" VALUE="122.577"/>
+        <PARAMETER NAME="CLKOUT2_JITTER" VALUE="201.826"/>
+        <PARAMETER NAME="CLKOUT2_PHASE_ERROR" VALUE="122.577"/>
+        <PARAMETER NAME="CLKOUT3_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT3_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT4_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT4_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT5_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT5_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT6_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT6_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT7_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT7_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="INPUT_MODE" VALUE="frequency"/>
+        <PARAMETER NAME="INTERFACE_SELECTION" VALUE="Enable_AXI"/>
+        <PARAMETER NAME="AXI_DRP" VALUE="false"/>
+        <PARAMETER NAME="PHASE_DUTY_CONFIG" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_in1" SIGIS="clk" SIGNAME="External_Ports_sys_clock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="sys_clock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="slowest_sync_clk"/>
+            <CONNECTION INSTANCE="debouncer_0" PORT="clk"/>
+            <CONNECTION INSTANCE="debouncer_1" PORT="clk"/>
+            <CONNECTION INSTANCE="edge_detector_0" PORT="clk"/>
+            <CONNECTION INSTANCE="edge_detector_1" PORT="clk"/>
+            <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="led_controller_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="mute_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="22580645" DIR="O" NAME="clk_out2" SIGIS="clk" SIGNAME="clk_wiz_clk_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_1" PORT="slowest_sync_clk"/>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="i2s_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="dcm_locked"/>
+            <CONNECTION INSTANCE="proc_sys_reset_1" PORT="dcm_locked"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debouncer_0" HWVERSION="1.0" INSTANCE="debouncer_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debouncer" VLNV="xilinx.com:module_ref:debouncer:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DEBOUNCE_MS" VALUE="10"/>
+        <PARAMETER NAME="CLOCK_FREQ" VALUE="100000000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_debouncer_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="input_signal" SIGIS="undef" SIGNAME="digilent_jstk2_0_btn_jstk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="btn_jstk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="debounced" SIGIS="undef" SIGNAME="debouncer_0_debounced">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="edge_detector_1" PORT="input_signal"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debouncer_1" HWVERSION="1.0" INSTANCE="debouncer_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debouncer" VLNV="xilinx.com:module_ref:debouncer:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DEBOUNCE_MS" VALUE="10"/>
+        <PARAMETER NAME="CLOCK_FREQ" VALUE="100000000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_debouncer_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="input_signal" SIGIS="undef" SIGNAME="digilent_jstk2_0_btn_trigger">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="btn_trigger"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="debounced" SIGIS="undef" SIGNAME="debouncer_1_debounced">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="edge_detector_0" PORT="input_signal"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/digilent_jstk2_0" HWVERSION="1.0" INSTANCE="digilent_jstk2_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="digilent_jstk2" VLNV="xilinx.com:module_ref:digilent_jstk2:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DELAY_US" VALUE="25"/>
+        <PARAMETER NAME="CLKFREQ" VALUE="100000000"/>
+        <PARAMETER NAME="SPI_SCLKFREQ" VALUE="5000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_digilent_jstk2_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="9" NAME="jstk_x" RIGHT="0" SIGIS="undef" SIGNAME="digilent_jstk2_0_jstk_x">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="balance"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="9" NAME="jstk_y" RIGHT="0" SIGIS="undef" SIGNAME="digilent_jstk2_0_jstk_y">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="volume"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="btn_jstk" SIGIS="undef" SIGNAME="digilent_jstk2_0_btn_jstk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debouncer_0" PORT="input_signal"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="btn_trigger" SIGIS="undef" SIGNAME="digilent_jstk2_0_btn_trigger">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debouncer_1" PORT="input_signal"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="led_r" RIGHT="0" SIGIS="undef" SIGNAME="led_controller_0_led_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_controller_0" PORT="led_r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="led_g" RIGHT="0" SIGIS="undef" SIGNAME="led_controller_0_led_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_controller_0" PORT="led_g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="led_b" RIGHT="0" SIGIS="undef" SIGNAME="led_controller_0_led_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_controller_0" PORT="led_b"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="digilent_jstk2_0_m_axis" NAME="m_axis" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axi4stream_spi_master_0_M_AXIS" NAME="s_axis" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/dual_moving_average_0" HWVERSION="1.0" INSTANCE="dual_moving_average_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="dual_moving_average" VLNV="xilinx.com:module_ref:dual_moving_average:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="FILTER_DEPTH" VALUE="32"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_dual_moving_average_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="filter_enable" SIGIS="undef" SIGNAME="edge_detector_1_edge_detected">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="edge_detector_1" PORT="edge_detected"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tlast" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="m_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="axis_dual_i2s_0_m_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tlast" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="s_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="balance_controller_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="dual_moving_average_0_m_axis" NAME="m_axis" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="m_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="axis_dual_i2s_0_m_axis" NAME="s_axis" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="s_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/edge_detector_0" HWVERSION="1.0" INSTANCE="edge_detector_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="edge_detector" VLNV="xilinx.com:module_ref:edge_detector:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="TRIGGER_RISING" VALUE="true"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_edge_detector_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="input_signal" SIGIS="undef" SIGNAME="debouncer_1_debounced">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debouncer_1" PORT="debounced"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="edge_detected" SIGIS="undef" SIGNAME="edge_detector_0_edge_detected">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_controller_0" PORT="mute_enable"/>
+            <CONNECTION INSTANCE="mute_0" PORT="mute_enable"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/edge_detector_1" HWVERSION="1.0" INSTANCE="edge_detector_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="edge_detector" VLNV="xilinx.com:module_ref:edge_detector:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="TRIGGER_RISING" VALUE="true"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_edge_detector_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="input_signal" SIGIS="undef" SIGNAME="debouncer_0_debounced">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debouncer_0" PORT="debounced"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="edge_detected" SIGIS="undef" SIGNAME="edge_detector_1_edge_detected">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="filter_enable"/>
+            <CONNECTION INSTANCE="led_controller_0" PORT="filter_enable"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/led_controller_0" HWVERSION="1.0" INSTANCE="led_controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="led_controller" VLNV="xilinx.com:module_ref:led_controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_led_controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="mute_enable" SIGIS="undef" SIGNAME="edge_detector_0_edge_detected">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="edge_detector_0" PORT="edge_detected"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="filter_enable" SIGIS="undef" SIGNAME="edge_detector_1_edge_detected">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="edge_detector_1" PORT="edge_detected"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led_b" RIGHT="0" SIGIS="undef" SIGNAME="led_controller_0_led_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="led_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led_g" RIGHT="0" SIGIS="undef" SIGNAME="led_controller_0_led_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="led_g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led_r" RIGHT="0" SIGIS="undef" SIGNAME="led_controller_0_led_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="led_r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/mute_0" HWVERSION="1.0" INSTANCE="mute_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mute" VLNV="xilinx.com:module_ref:mute:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_mute_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="mute_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="mute_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="mute_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tlast" SIGIS="undef" SIGNAME="mute_0_s_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="m_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tlast" SIGIS="undef" SIGNAME="axis_dual_i2s_0_s_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="s_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mute_enable" SIGIS="undef" SIGNAME="edge_detector_0_edge_detected">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="edge_detector_0" PORT="edge_detected"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="mute_0_m_axis" NAME="m_axis" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="m_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="volume_controller_0_m_axis" NAME="s_axis" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="s_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/proc_sys_reset_0" HWVERSION="5.0" INSTANCE="proc_sys_reset_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="proc_sys_reset" VLNV="xilinx.com:ip:proc_sys_reset:5.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=proc_sys_reset;v=v5_0;d=pg164-proc-sys-reset.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
+        <PARAMETER NAME="C_EXT_RST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_AUX_RST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_EXT_RESET_HIGH" VALUE="1"/>
+        <PARAMETER NAME="C_AUX_RESET_HIGH" VALUE="0"/>
+        <PARAMETER NAME="C_NUM_BUS_RST" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_PERP_RST" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_INTERCONNECT_ARESETN" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_PERP_ARESETN" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_proc_sys_reset_0_0"/>
+        <PARAMETER NAME="USE_BOARD_FLOW" VALUE="true"/>
+        <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="reset"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ext_reset_in" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aux_reset_in" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
+        <PORT DIR="I" NAME="mb_debug_sys_rst" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
+        <PORT DIR="I" NAME="dcm_locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="locked"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
+        <PORT DIR="O" LEFT="0" NAME="bus_struct_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
+        <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debouncer_0" PORT="reset"/>
+            <CONNECTION INSTANCE="edge_detector_0" PORT="reset"/>
+            <CONNECTION INSTANCE="debouncer_1" PORT="reset"/>
+            <CONNECTION INSTANCE="edge_detector_1" PORT="reset"/>
+            <CONNECTION INSTANCE="led_controller_0" PORT="reset"/>
+            <CONNECTION INSTANCE="mute_0" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="interconnect_aresetn" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="rst"/>
+        <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="dual_moving_average_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="volume_controller_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/proc_sys_reset_1" HWVERSION="5.0" INSTANCE="proc_sys_reset_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="proc_sys_reset" VLNV="xilinx.com:ip:proc_sys_reset:5.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=proc_sys_reset;v=v5_0;d=pg164-proc-sys-reset.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
+        <PARAMETER NAME="C_EXT_RST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_AUX_RST_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_EXT_RESET_HIGH" VALUE="1"/>
+        <PARAMETER NAME="C_AUX_RESET_HIGH" VALUE="0"/>
+        <PARAMETER NAME="C_NUM_BUS_RST" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_PERP_RST" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_INTERCONNECT_ARESETN" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_PERP_ARESETN" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_proc_sys_reset_0_1"/>
+        <PARAMETER NAME="USE_BOARD_FLOW" VALUE="true"/>
+        <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="reset"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="22580645" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ext_reset_in" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aux_reset_in" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
+        <PORT DIR="I" NAME="mb_debug_sys_rst" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
+        <PORT DIR="I" NAME="dcm_locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="locked"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
+        <PORT DIR="O" LEFT="0" NAME="bus_struct_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
+        <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
+        <PORT DIR="O" LEFT="0" NAME="interconnect_aresetn" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="rst"/>
+        <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_1_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axis_dual_i2s_0" PORT="i2s_resetn"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/volume_controller_0" HWVERSION="1.0" INSTANCE="volume_controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="volume_controller" VLNV="xilinx.com:module_ref:volume_controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="N_VALUE" VALUE="6"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_volume_controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="mute_0_s_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="mute_0_s_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="mute_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tlast" SIGIS="undef" SIGNAME="mute_0_s_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mute_0" PORT="s_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tlast" SIGIS="undef" SIGNAME="balance_controller_0_m_axis_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="balance_controller_0" PORT="m_axis_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="9" NAME="volume" RIGHT="0" SIGIS="undef" SIGNAME="digilent_jstk2_0_jstk_y">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="digilent_jstk2_0" PORT="jstk_y"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="volume_controller_0_m_axis" NAME="m_axis" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="m_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="balance_controller_0_m_axis" NAME="s_axis" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="3"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_clk_out1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="s_axis_tlast"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

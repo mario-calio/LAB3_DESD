@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Fri Mar 25 16:24:27 2022
+[*]
+[dumpfile] "/home/nicola/Documents/Vivado/IPs/ip_repo/axi4-stream-spi-master/sim/build/waveform.ghw"
+[dumpfile_mtime] "Fri Mar 25 16:23:35 2022"
+[dumpfile_size] 3066
+[savefile] "/home/nicola/Documents/Vivado/IPs/ip_repo/axi4-stream-spi-master/sim/waveforms.gtkw"
+[timestart] 0
+[size] 1920 1001
+[pos] -27 -24
+*-27.176317 7190000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.axis_lw_spi_master.
+[treeopen] top.axis_lw_spi_master.inst_lw_spi_master.
+[sst_width] 281
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 285
+@28
+top.axis_lw_spi_master.clk
+@200
+-
+@28
+top.axis_lw_spi_master.s_axis_tvalid
+top.axis_lw_spi_master.s_axis_tready
+@22
+#{top.axis_lw_spi_master.s_axis_tdata[7:0]} top.axis_lw_spi_master.s_axis_tdata[7] top.axis_lw_spi_master.s_axis_tdata[6] top.axis_lw_spi_master.s_axis_tdata[5] top.axis_lw_spi_master.s_axis_tdata[4] top.axis_lw_spi_master.s_axis_tdata[3] top.axis_lw_spi_master.s_axis_tdata[2] top.axis_lw_spi_master.s_axis_tdata[1] top.axis_lw_spi_master.s_axis_tdata[0]
+@200
+-
+@28
+top.axis_lw_spi_master.m_axis_tvalid
+@22
+#{top.axis_lw_spi_master.m_axis_tdata[7:0]} top.axis_lw_spi_master.m_axis_tdata[7] top.axis_lw_spi_master.m_axis_tdata[6] top.axis_lw_spi_master.m_axis_tdata[5] top.axis_lw_spi_master.m_axis_tdata[4] top.axis_lw_spi_master.m_axis_tdata[3] top.axis_lw_spi_master.m_axis_tdata[2] top.axis_lw_spi_master.m_axis_tdata[1] top.axis_lw_spi_master.m_axis_tdata[0]
+@200
+-
+@28
+top.axis_lw_spi_master.inst_lw_spi_master.en_i
+@22
+#{top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[7:0]} top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[7] top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[6] top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[5] top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[4] top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[3] top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[2] top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[1] top.axis_lw_spi_master.inst_lw_spi_master.mosi_data_i[0]
+#{top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[7:0]} top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[7] top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[6] top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[5] top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[4] top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[3] top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[2] top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[1] top.axis_lw_spi_master.inst_lw_spi_master.miso_data_o[0]
+@28
+top.axis_lw_spi_master.inst_lw_spi_master.data_ready_o
+@200
+-
+@28
+top.axis_lw_spi_master.sclk
+top.axis_lw_spi_master.mosi
+top.axis_lw_spi_master.miso
+@29
+top.axis_lw_spi_master.cs
+[pattern_trace] 1
+[pattern_trace] 0

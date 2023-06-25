@@ -1,0 +1,414 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun May 21 16:24:18 2023
+# Process ID: 8064
+# Current directory: C:/Users/mario/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6072
+# Log file: C:/Users/mario/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/mario/AppData/Roaming/Xilinx/Vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.xpr}
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_compile_order -fileset sources_1
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes design_1_i/system_ila_0/U0/net_slot_0_axis_tready -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes design_1_i/system_ila_0/U0/net_slot_0_axis_tvalid -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+open_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"design_1_i/system_ila_0/U0/ila_lib"}]]
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets counter_out] [get_bd_nets voulme_temp_out] [get_bd_nets output_temp_out] [get_bd_cells system_ila_0]
+delete_bd_objs [get_bd_intf_nets volume_controller_0_m_axis] [get_bd_nets digilent_jstk2_0_jstk_x] [get_bd_intf_nets balance_controller_0_m_axis] [get_bd_cells balance_controller_0]
+connect_bd_intf_net [get_bd_intf_pins volume_controller_0/m_axis] [get_bd_intf_pins mute_0/s_axis]
+update_compile_order -fileset sources_1
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_volume_controller_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {180.000} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {49.500} CONFIG.MMCM_CLKOUT0_DIVIDE_F {5.500} CONFIG.MMCM_CLKOUT1_DIVIDE {44} CONFIG.CLKOUT1_JITTER {224.262} CONFIG.CLKOUT1_PHASE_ERROR {296.868} CONFIG.CLKOUT2_JITTER {316.348} CONFIG.CLKOUT2_PHASE_ERROR {296.868}] [get_bd_cells clk_wiz]
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_clkfreq {180000000}] [get_bd_cells axi4stream_spi_master_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKFREQ {180000000}] [get_bd_cells digilent_jstk2_0]
+endgroup
+startgroup
+endgroup
+save_bd_design
+reset_run synth_1
+reset_run design_1_digilent_jstk2_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}}]
+refresh_design
+open_run impl_1
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference balance_controller balance_controller_0
+delete_bd_objs [get_bd_intf_nets volume_controller_0_m_axis]
+connect_bd_intf_net [get_bd_intf_pins volume_controller_0/m_axis] [get_bd_intf_pins balance_controller_0/s_axis]
+connect_bd_intf_net [get_bd_intf_pins balance_controller_0/m_axis] [get_bd_intf_pins mute_0/s_axis]
+connect_bd_net [get_bd_pins balance_controller_0/aclk] [get_bd_pins clk_wiz/clk_out1]
+connect_bd_net [get_bd_pins balance_controller_0/aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+connect_bd_net [get_bd_pins balance_controller_0/balance] [get_bd_pins digilent_jstk2_0/jstk_x]
+regenerate_bd_layout
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_3
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}}]
+refresh_design
+open_run impl_1
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_volume_controller_0_0
+update_module_reference design_1_balance_controller_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+update_module_reference design_1_volume_controller_0_0
+update_module_reference design_1_balance_controller_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+close_design
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+endgroup
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+startgroup
+unplace_cell  [get_cells [list  {design_1_i/dual_moving_average_0/U0/counter_reg[5]} {design_1_i/dual_moving_average_0/U0/FSM_sequential_state[2]_i_8}] -filter {((is_primitive==true && primitive_level!="INTERNAL")  && (loc!=""))}]
+place_cell {design_1_i/dual_moving_average_0/U0/counter_reg[1]} SLICE_X21Y112/AFF
+place_cell {design_1_i/dual_moving_average_0/U0/counter_reg[5]} SLICE_X21Y113/AFF
+place_cell {design_1_i/dual_moving_average_0/U0/FSM_sequential_state[2]_i_8} SLICE_X20Y113/A6LUT
+endgroup
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+startgroup
+place_cell {design_1_i/dual_moving_average_0/U0/FSM_sequential_state[2]_i_8} SLICE_X20Y112/C6LUT
+endgroup
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.CLKFREQ {100000000}] [get_bd_cells digilent_jstk2_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_clkfreq {100000000}] [get_bd_cells axi4stream_spi_master_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100.000} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {7.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {7.000} CONFIG.MMCM_CLKOUT1_DIVIDE {31} CONFIG.CLKOUT1_JITTER {149.337} CONFIG.CLKOUT1_PHASE_ERROR {122.577} CONFIG.CLKOUT2_JITTER {201.826} CONFIG.CLKOUT2_PHASE_ERROR {122.577}] [get_bd_cells clk_wiz]
+endgroup
+startgroup
+endgroup
+set_property target_constrs_file {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/constrs_1/imports/hdl/pins.xdc} [current_fileset -constrset]
+save_constraints -force
+save_bd_design
+reset_run synth_1
+reset_run design_1_digilent_jstk2_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_digilent_jstk2_0_0
+update_module_reference design_1_led_controller_0_0
+update_module_reference design_1_volume_controller_0_0
+update_module_reference design_1_balance_controller_0_0
+startgroup
+set_property -dict [list CONFIG.N_VALUE {2}] [get_bd_cells balance_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {2}] [get_bd_cells volume_controller_0]
+endgroup
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells balance_controller_0]
+endgroup
+update_module_reference design_1_volume_controller_0_0
+update_module_reference design_1_balance_controller_0_0
+update_module_reference design_1_mute_0_0
+update_module_reference design_1_dual_moving_average_0_0
+update_module_reference design_1_led_controller_0_0
+update_module_reference design_1_dual_moving_average_0_0
+update_module_reference design_1_balance_controller_0_0
+update_module_reference design_1_mute_0_0
+update_module_reference design_1_volume_controller_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+open_bd_design {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/a/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {7}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {7}] [get_bd_cells balance_controller_0]
+endgroup
+update_module_reference design_1_dual_moving_average_0_0
+update_module_reference design_1_balance_controller_0_0
+update_module_reference design_1_volume_controller_0_0
+update_module_reference design_1_mute_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+update_module_reference design_1_volume_controller_0_0
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells balance_controller_0]
+endgroup
+save_bd_design
+reset_run synth_1
+reset_run design_1_balance_controller_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/Laboratories/Lab3/lab3_home_assignment_solution.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/OneDrive - Politecnico di Milano/.DESD/Laboratories/Lab3/lab3_home_assignment_solution.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_project
+open_project C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.xpr
+open_bd_design {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+update_compile_order -fileset sources_1
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells balance_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {8}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.FILTER_DEPTH {100}] [get_bd_cells dual_moving_average_0]
+endgroup
+validate_bd_design
+startgroup
+endgroup
+save_bd_design
+reset_run synth_1
+reset_run design_1_dual_moving_average_0_0_synth_1
+reset_run design_1_balance_controller_0_0_synth_1
+reset_run design_1_volume_controller_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_bd_design {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100.000} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {7.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {7.000} CONFIG.MMCM_CLKOUT1_DIVIDE {31} CONFIG.CLKOUT1_JITTER {149.337} CONFIG.CLKOUT1_PHASE_ERROR {122.577} CONFIG.CLKOUT2_JITTER {201.826} CONFIG.CLKOUT2_PHASE_ERROR {122.577}] [get_bd_cells clk_wiz]
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKFREQ {100000000}] [get_bd_cells digilent_jstk2_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.c_clkfreq {100000000}] [get_bd_cells axi4stream_spi_master_0]
+endgroup
+startgroup
+endgroup
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells balance_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.N_VALUE {6}] [get_bd_cells volume_controller_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.FILTER_DEPTH {32}] [get_bd_cells dual_moving_average_0]
+endgroup
+save_bd_design
+reset_run synth_1
+reset_run design_1_digilent_jstk2_0_0_synth_1
+reset_run design_1_dual_moving_average_0_0_synth_1
+reset_run design_1_balance_controller_0_0_synth_1
+reset_run design_1_volume_controller_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+reset_run design_1_debouncer_0_0_synth_1
+reset_run design_1_edge_detector_0_0_synth_1
+reset_run design_1_debouncer_1_0_synth_1
+reset_run design_1_edge_detector_1_0_synth_1
+reset_run design_1_axis_dual_i2s_0_2_synth_1
+reset_run design_1_led_controller_0_0_synth_1
+reset_run design_1_mute_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/mario/Desktop/Group_11A_assignement3.xpr/LAB3_Loopback/LAB3_Loopback.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+archive_project C:/Users/mario/Documents/Group_11A_assignement3.xpr.zip -temp_dir C:/Users/mario/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8064-Pc -force -include_local_ip_cache -include_config_settings
